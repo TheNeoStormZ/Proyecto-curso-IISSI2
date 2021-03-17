@@ -13,7 +13,7 @@ DB_CONN = {
     "port": 3306,
     "username": "iissi_user",
     "password": "iissi$user",
-    "database": "gallery",
+    "database": "bd2",
 }
 
 # The sequence of SQL scripts located in the sql/ folder that must
