@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/docs/images/favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/docs/images/favicon.ico" />
+    <link rel="stylesheet" href="/docs/styles.css" />
+    <script src="/docs/js/utils/include.js"></script>
     <title>Document</title>
-</head>
-<body>
-    <p id="saludo">Hola</p>
-    <p class="cl1">Hola2</p>
-    <ul>
-        <li>Naranjas</li>
-        <li>Manzanas</li>
-        <li>Limones</li>
-    </ul>
-    <a href="registro.html">Registrarse</a>
-    
-</body>
+  </head>
+  <body>
+    <div id="page-header"></div>
+    <h2>Recent pictures</h2>
+    <a href="upload_picture.html">Upload a new picture </a>
+    <div class="gallery-container">
+      <!-- Our  photo-blocks  will be here -->
+      <div class="photo-block">
+        <div class="photo-header-block">
+          <h2 class="photo-title">Samoyed</h2>
+          <h3 class="photo-score">Score: 4.52</h3>
+        </div>
+        <div class="photo-image-block">
+          <img class="photo-image" src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" />
+        </div>
+        <div class="photo-metadata-block">
+          <p class="photo-description">A very good boy.</p>
+        </div>
+        <div class="photo-edit-block">
+          <button>Edit this photo</button><button>Delete this photo</button>
+        </div>
+      </div>
+
+      <div class="photo-block">
+        <div class="photo-header-block">
+          <h2 class="photo-title">Samoyed</h2>
+          <h3 class="photo-score">Score: 4.52</h3>
+        </div>
+        <div class="photo-image-block">
+          <img class="photo-image" src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" />
+        </div>
+        <div class="photo-metadata-block">
+          <p class="photo-description">A very good boy.</p>
+        </div>
+        <div class="photo-edit-block">
+          <button>Edit this photo</button><button>Delete this photo</button>
+        </div>
+      </div>
+
+      <div class="photo-block">
+        <div class="photo-header-block">
+          <h2 class="photo-title">Samoyed</h2>
+          <h3 class="photo-score">Score: 4.52</h3>
+        </div>
+        <div class="photo-image-block">
+          <img class="photo-image" src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" />
+        </div>
+        <div class="photo-metadata-block">
+          <p class="photo-description">A very good boy.</p>
+        </div>
+        <div class="photo-edit-block">
+          <button>Edit this photo</button><button>Delete this photo</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      include("header.html", "#page-header");
+    </script>
+  </body>
 </html>

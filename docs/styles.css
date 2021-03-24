@@ -1,12 +1,61 @@
-body {
- background-color: blanchedalmond;
-
+div.photo-block {
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 5%;
 }
-#saludo {
-    color: red;
-
+.photo-title {
+  font-size: 140%;
+  font-family: Arial;
+  text-decoration: underline;
 }
-.cl1 {
-    color: navy;
-    background-color: palegreen;
+.photo-score {
+  font-family: 130%;
+  font-family: monospace;
+}
+img.photo-image {
+  height: auto;
+  width: 96%;
+}
+.gallery-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
+.input-group {
+  margin-bottom: 0.5em;
+}
+
+div.title-block {
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: #eeeeee;
+}
+#title {
+  font-size: 300%;
+  text-decoration: none;
+  color: #444444;
+  font-family: sans-serif;
+  margin-bottom: 0;
+}
+#subtitle {
+  font-size: 120%;
+  font-style: italic;
+  color: #555555;
+  font-family: monospace;
+}
+
+div.navigation > a {
+  color: white;
+  font-size: 120%;
+  background-color: #555555;
+  font-family: monospace;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 150px;
 }
