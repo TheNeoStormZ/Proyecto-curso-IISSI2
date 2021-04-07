@@ -4,18 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
     <title>Document</title>
   </head>
 
   <body>
     <div class="title-block">
-      <h1 id="title">Photo Gallery</h1>
+      <h1 id="title">
+        Photo Gallery <i class="fa fa-file-image-o" aria-hidden="true"></i>
+      </h1>
       <h3 id="subtitle">IISSI-2 - University of Seville</h3>
-      <div class="navigation">
-        <a href="index.html">Recent photos </a>
-        <a href="register.html">Register </a>
-        <a href="login.html">Login </a>
-      </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navigation index </a
+        ><button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Recent photos </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">Register </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDesplegableId"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Trending</a
+              >
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="trending_users.html"
+                  >Trending users</a
+                ><a class="dropdown-item" href="trending_photos.html"
+                  >Trending photos
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </body>
 </html>

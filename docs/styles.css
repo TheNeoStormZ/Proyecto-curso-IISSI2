@@ -20,13 +20,12 @@ img.photo-image {
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
-label {
+.input-group label {
   display: inline-block;
   width: 200px;
   text-align: right;
 }
-
-.input-group {
+.input-group{
   margin-bottom: 0.5em;
 }
 

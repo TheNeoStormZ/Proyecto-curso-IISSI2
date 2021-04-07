@@ -8,61 +8,69 @@
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
     <title>Document</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width , initial-scale=1 ,shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <script src="/js/libs/jquery-3.4.1.min.js"></script>
+    <script src="/js/libs/popper.min.js"></script>
+    <script src="/js/libs/bootstrap.min.js"></script>
   </head>
   <body>
     <div id="page-header"></div>
-    <h2>Recent pictures</h2>
-    <a href="upload_picture.html">Upload a new picture </a>
-    <div class="gallery-container">
-      <!-- Our  photo-blocks  will be here -->
-      <div class="photo-block">
-        <div class="photo-header-block">
-          <h2 class="photo-title">Samoyed</h2>
-          <h3 class="photo-score">Score: 4.52</h3>
-        </div>
-        <div class="photo-image-block">
-          <img class="photo-image" src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" />
-        </div>
-        <div class="photo-metadata-block">
-          <p class="photo-description">A very good boy.</p>
-        </div>
-        <div class="photo-edit-block">
-          <button>Edit this photo</button><button>Delete this photo</button>
-        </div>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md"><h3>Recent pictures</h3></div>
       </div>
-
-      <div class="photo-block">
-        <div class="photo-header-block">
-          <h2 class="photo-title">Samoyed</h2>
-          <h3 class="photo-score">Score: 4.52</h3>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="card">
+            <a href="photo_detail.html"
+              ><img
+                src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                class="card-img-top"
+            /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center">Samoyed</h5>
+              <p class="card-text">A very good boy.</p>
+              <p class="text-right">@user1</p>
+            </div>
+          </div>
         </div>
-        <div class="photo-image-block">
-          <img class="photo-image" src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" />
+        <div class="col-md-4">
+          <div class="card">
+            <a href="photo_detail.html"
+              ><img
+                src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                class="card-img-top"
+            /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center">Samoyed</h5>
+              <p class="card-text">A very good boy.</p>
+              <p class="text-right">@user1</p>
+            </div>
+          </div>
         </div>
-        <div class="photo-metadata-block">
-          <p class="photo-description">A very good boy.</p>
-        </div>
-        <div class="photo-edit-block">
-          <button>Edit this photo</button><button>Delete this photo</button>
-        </div>
-      </div>
-
-      <div class="photo-block">
-        <div class="photo-header-block">
-          <h2 class="photo-title">Samoyed</h2>
-          <h3 class="photo-score">Score: 4.52</h3>
-        </div>
-        <div class="photo-image-block">
-          <img class="photo-image" src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" />
-        </div>
-        <div class="photo-metadata-block">
-          <p class="photo-description">A very good boy.</p>
-        </div>
-        <div class="photo-edit-block">
-          <button>Edit this photo</button><button>Delete this photo</button>
+        <div class="col-md-4">
+          <div class="card">
+            <a href="photo_detail.html"
+              ><img
+                src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                class="card-img-top"
+            /></a>
+            <div class="card-body">
+              <h5 class="card-title text-center">Samoyed</h5>
+              <p class="card-text">A very good boy.</p>
+              <p class="text-right">@user1</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <a href="upload_picture.html">Upload a new picture </a>
     <script>
       include("header.html", "#page-header");
     </script>
