@@ -1,2 +1,2 @@
-# Sample project
-This project contains an example project that is downloaded by default using the `silence new` command.
+# Proyecto curso IISSI2
+Esta rama del proyecto contiene el entregable a realizar
