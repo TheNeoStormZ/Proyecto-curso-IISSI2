@@ -1,2 +1,2 @@
-# Sample project
-This project contains an example project that is downloaded by default using the `silence new` command.
+# Proyecto IISSI2
+Esta rama contiene la version del Laboratorio, que normalmente ira mas avanzada en funcionalidad
