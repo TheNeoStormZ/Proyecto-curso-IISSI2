@@ -1,2 +1,2 @@
-# Proyecto IISSI2
-Esta rama contiene la version del Laboratorio, que normalmente ira mas avanzada en funcionalidad
+# Proyecto curso IISSI2
+Esta rama del proyecto contiene el entregable a realizar
