@@ -1,3 +1,23 @@
+
+.user-photo{
+  width: 30%;
+  text-align: center;
+}
+
+#user-name{
+  text-align: center;
+}
+
+.user-unified-details{
+    font-weight : bold;
+}
+
+.sticky-top{
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
 .btn{
   margin-top:10px;
 }

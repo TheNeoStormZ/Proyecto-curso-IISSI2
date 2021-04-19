@@ -32,7 +32,7 @@ const photoRenderer = {
     let html = `<div class= "photo-details">
     <h3 >${ photo.title } </h3 >
     <h6 >${ photo.description } </h6 >
-    <p class= " text-left ">Published by: <img src="/images/user.png"> ${photo.userName}</p >
+    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html " class= "user-link ">${photo.userName}</a></p >
     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
     <hr >
     <img src= "${ photo.url }" class= "img-fluid">

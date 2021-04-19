@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/docs/images/user.svg" />
+    <link rel="stylesheet" href="/docs/styles.css" />
+    <script src="/docs/js/utils/include.js"></script>
+    <title>About Me</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width , initial-scale=1 ,shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <script src="/js/libs/jquery-3.4.1.min.js"></script>
+    <script src="/js/libs/popper.min.js"></script>
+    <script src="/js/libs/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="sticky-top" id="page-header"></div>
+    
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md"><h3>About Me <i class="fa fa-user" aria-hidden="true"></i></h3></div>
+      </div>
+      <div class="user-unified-details">
+      <div class="row text-left">
+        <div class="col-md" id="user-info-column">
+          <img src="images/user1.svg" alt="User photo" class="user-photo">
+          <p class= "text-left" id="user-name">User Name</p>
+        </div>
+        <div class="col-md" id="user-details-column">
+          <p class= "text-left" id="user-real-name">Lucas Garcia</p>
+          <p class= "text-left" id="email">lucasgarcia@gmail.com</p>
+        </div>
+        <div class="col-md" id="user-info-column">
+          <img src="images/group.svg" alt="User photo" class="user-photo">
+        </div>
+        <div class="col-md" id="user-social-details-column">
+          <p class= "text-left" id="user-friends">20 Friends</p>
+          <p class= "text-left" id="user-following">Following 500 people</p>
+          <p class= "text-left" id="user-followers">200 Followers</p>
+        </div>
+        <div class="col-md" id="user-info-column">
+          <img src="images/gallery.svg" alt="User photo" class="user-photo">
+        </div>
+        
+        <div class="col-md" id="user-photo-counts-column">
+          <p class= "text-left" id="user-photos">32 photos uploaded</p>
+          <p class= "text-left" id="user-private-photos">5 private photos</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      include("header.html", "#page-header");
+    </script>
+  </body>
+</html>
