@@ -5,9 +5,13 @@ function main() {
   let photo = {
     title: " Samoyed ",
     description: "A very good boy. ",
+    userName: "User1",
     userId: 1,
+    averageStars: 4.3,
+    likes: 25,
+    comments: 100,
     url: "https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg ",
-    date: " 12/01/1996 ",
+    date: " 15/08/2020 ",
   };
   let photoDetails = photoRenderer.asDetails(photo);
   photoContainer.appendChild(photoDetails);

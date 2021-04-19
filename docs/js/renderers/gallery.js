@@ -17,7 +17,7 @@ const galleryRenderer = {
       let card = photoRenderer.asCard(photo);
       row.appendChild(card);
       counter += 1;
-      if (counter % 3 === 0) {
+      if (counter % 1 === 0) {
         row = parseHTML('<div class= "row"> </div >');
         galleryContainer.appendChild(row);
       }

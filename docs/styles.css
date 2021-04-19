@@ -1,7 +1,32 @@
+.btn{
+  margin-top:10px;
+}
+.img-fluid{
+  margin-bottom:10px;
+}
+
+.col-md {
+  margin-top:10px;
+  margin-bottom:20px;
+}
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+.vertical-align-photo-text{
+  vertical-align: middle;
+}
+
+.nav-bar{
+  position: sticky;
+}
+
 div.photo-block {
+  margin: auto;
   text-align: center;
+  margin-bottom: 30px;
   border: 1px solid gray;
-  border-radius: 5%;
+
 }
 .photo-title {
   font-size: 140%;
