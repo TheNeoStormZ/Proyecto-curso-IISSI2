@@ -15,7 +15,7 @@ const photoRenderer = {
                     <h5 class= " card-title text-center ">${photo.title}
                     </h5 >
                     <p class= " text-center ">${photo.description}</p>
-                    <p class= " text-left ">Published by: <img src="/images/user.png"> ${photo.userName}</p >
+                    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html">${photo.userName}</a></p >
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
                     <p class= " text-left "><img src="/images/star.png"> ${photo.averageStars} stars average</p >
                     <p class= " text-left "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>

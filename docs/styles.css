@@ -1,4 +1,13 @@
 
+.fixed-bottom{
+  padding-top: 1%;
+  background-color:whitesmoke;
+}
+
+.user-displayed-photo{
+  max-width: 100%;
+  margin-bottom:10px;
+}
 .user-photo{
   width: 30%;
   text-align: center;
@@ -12,11 +21,6 @@
     font-weight : bold;
 }
 
-.sticky-top{
-  position: fixed;
-  top: 0;
-  width: 100%
-}
 
 .btn{
   margin-top:10px;
@@ -25,7 +29,7 @@
   margin-bottom:10px;
 }
 
-.col-md {
+.col-md, .title {
   margin-top:10px;
   margin-bottom:20px;
 }
@@ -47,23 +51,6 @@ div.photo-block {
   margin-bottom: 30px;
   border: 1px solid gray;
 
-}
-.photo-title {
-  font-size: 140%;
-  font-family: Arial;
-  text-decoration: underline;
-}
-.photo-score {
-  font-family: 130%;
-  font-family: monospace;
-}
-img.photo-image {
-  height: auto;
-  width: 96%;
-}
-.gallery-container {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
 }
 .input-group label {
   display: inline-block;

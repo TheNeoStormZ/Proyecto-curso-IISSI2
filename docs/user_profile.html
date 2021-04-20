@@ -1,61 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/docs/images/user.svg" />
-    <link rel="stylesheet" href="/docs/styles.css" />
-    <script src="/docs/js/utils/include.js"></script>
-    <title>About Me</title>
 
-    <meta
-      name="viewport"
-      content="width=device-width , initial-scale=1 ,shrink-to-fit=no"
-    />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/font-awesome.min.css" />
-    <script src="/js/libs/jquery-3.4.1.min.js"></script>
-    <script src="/js/libs/popper.min.js"></script>
-    <script src="/js/libs/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div class="sticky-top" id="page-header"></div>
-    
-    <div class="container">
-      <div class="row text-left">
-        <div class="col-md"><h3>About Me <i class="fa fa-user" aria-hidden="true"></i></h3></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/docs/images/user.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script src="/docs/js/utils/include.js"></script>
+  <title>About Me</title>
+
+  <meta name="viewport" content="width=device-width , initial-scale=1 ,shrink-to-fit=no" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <script src="/js/libs/jquery-3.4.1.min.js"></script>
+  <script src="/js/libs/popper.min.js"></script>
+  <script src="/js/libs/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="sticky-top" id="page-header"></div>
+
+  <div class="container">
+    <div class="row text-left">
+      <div class="col-md">
+        <h3>About Me <i class="fa fa-user" aria-hidden="true"></i></h3>
       </div>
-      <div class="user-unified-details">
+    </div>
+    <div class="user-unified-details">
       <div class="row text-left">
         <div class="col-md" id="user-info-column">
           <img src="images/user1.svg" alt="User photo" class="user-photo">
-          <p class= "text-left" id="user-name">User Name</p>
+          <p class="text-left" id="user-name">User Name</p>
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Edit Profile <i
+              class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
         </div>
         <div class="col-md" id="user-details-column">
-          <p class= "text-left" id="user-real-name">Lucas Garcia</p>
-          <p class= "text-left" id="email">lucasgarcia@gmail.com</p>
+          <p class="text-left" id="user-real-name">Lucas Garcia</p>
+          <p class="text-left" id="email">lucasgarcia@gmail.com</p>
         </div>
         <div class="col-md" id="user-info-column">
           <img src="images/group.svg" alt="User photo" class="user-photo">
         </div>
         <div class="col-md" id="user-social-details-column">
-          <p class= "text-left" id="user-friends">20 Friends</p>
-          <p class= "text-left" id="user-following">Following 500 people</p>
-          <p class= "text-left" id="user-followers">200 Followers</p>
+          <p class="text-left" id="user-friends">20 Friends</p>
+          <p class="text-left" id="user-following">Following 500 people</p>
+          <p class="text-left" id="user-followers">200 Followers</p>
         </div>
         <div class="col-md" id="user-info-column">
           <img src="images/gallery.svg" alt="User photo" class="user-photo">
         </div>
-        
+
         <div class="col-md" id="user-photo-counts-column">
-          <p class= "text-left" id="user-photos">32 photos uploaded</p>
-          <p class= "text-left" id="user-private-photos">5 private photos</p>
+          <p class="text-left" id="user-photos">32 photos uploaded</p>
+          <p class="text-left" id="user-private-photos">5 private photos</p>
+        </div>
+      </div>
+      <div class="row text-left">
+        <div class="col-md">
+          <h2>My Gallery <i class="fa fa-clone" aria-hidden="true"></i></h2>
+        </div>
+      </div>
+      <div class="user-displayed-photos">
+        <div class="card-deck">
+          <div class="row text-left">
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" alt="photo1" class="user-displayed-photo">
+                </a>
+                <h4 class="text-center">Photo1</h4>
+                <div class="card-footer"><small class="text-muted">Private photo</small></div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" alt="photo1" class="user-displayed-photo">
+                </a>
+                <h4 class="text-center">Photo2</h4>
+                <div class="card-footer"><small class="text-muted">Private photo</small></div>
+              </div>
+            </div>
+
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" alt="photo1" class="user-displayed-photo">
+                </a>
+                <h4 class="text-center">Photo3</h4>
+                <div class="card-footer"><small class="text-muted">Private photo</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="row text-left">
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" alt="photo1" class="user-displayed-photo">
+                </a>
+                <h4 class="text-center">Photo4</h4>
+                <div class="card-footer"><small class="text-muted">Private photo</small></div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" alt="photo1" class="user-displayed-photo">
+                </a>
+                <h4 class="text-center">Photo5</h4>
+                <div class="card-footer"><small class="text-muted">Private photo</small></div>
+              </div>
+            </div>
+
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg" alt="photo1" class="user-displayed-photo">
+                </a>
+                <h4 class="text-center">Photo6</h4>
+                <div class="card-footer"><small class="text-muted">Private photo</small></div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
+    <footer class="fixed-bottom">
+      <div class="container">
+        <p class="text-right">Not your desired account?
+          <a href="login.html"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> Log out </button></a>
+        </p>
+      </div>
+    </footer>
     <script>
       include("header.html", "#page-header");
     </script>
-  </body>
+</body>
+
 </html>

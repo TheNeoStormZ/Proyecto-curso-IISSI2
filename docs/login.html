@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/docs/images/user_login.svg" />
+  <link rel="stylesheet" href="/docs/styles.css" />
+  <script src="/docs/js/utils/include.js"></script>
+  <title>Login</title>
+
+  <meta name="viewport" content="width=device-width , initial-scale=1 ,shrink-to-fit=no" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <script src="/js/libs/jquery-3.4.1.min.js"></script>
+  <script src="/js/libs/popper.min.js"></script>
+  <script src="/js/libs/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="sticky-top" id="page-header"></div>
+  <div class="container">
+    <div class="title">
+    <h2>Log In <i class="fa fa-key" aria-hidden="true"></i></h2>
+  </div>
+    <form>
+      <div class="row">
+        <div class="mx-auto">
+        <img src="images/camera.png" alt="logo">
+      </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="form-group">
+            <label for="username-input">Username: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="user-input"
+              name="user"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-group">
+            <label for="password-input">Password: </label
+            ><input
+              type="password"
+              class="form-control"
+              id="password-input"
+              name="pass"
+              placeholder="Pasword"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md text-center">
+          <button type="submit" class="btn btn-primary">Log In <i class="fa fa-key" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <footer class="fixed-bottom">
+    <div class="container">
+      <p class="text-right">Don`t have an account?
+        <a href="register.html"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> Register <i class="fa fa-plus-circle" aria-hidden="true"></i> </button></a>
+      </p>
+    </div>
+  </footer>
+  <script>
+    include("header.html", "#page-header");
+  </script>
+</body>
+
+</html>
