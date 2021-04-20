@@ -15,7 +15,7 @@ const photoRenderer = {
                     <h5 class= " card-title text-center ">${photo.title}
                     </h5 >
                     <p class= " text-center ">${photo.description}</p>
-                    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html">${photo.userName}</a></p >
+                    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_1.html">${photo.userName}</a></p >
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
                     <p class= " text-left "><img src="/images/star.png"> ${photo.averageStars} stars average</p >
                     <p class= " text-left "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
@@ -32,7 +32,7 @@ const photoRenderer = {
     let html = `<div class= "photo-details">
     <h3 >${ photo.title } </h3 >
     <h6 >${ photo.description } </h6 >
-    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html " class= "user-link ">${photo.userName}</a></p >
+    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_1.html " class= "user-link ">${photo.userName}</a></p >
     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
     <hr >
     <img src= "${ photo.url }" class= "img-fluid">

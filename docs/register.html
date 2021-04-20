@@ -26,6 +26,12 @@
       <h2 class="title">Register a new user <i class="fa fa-plus-circle" aria-hidden="true"></i></h2>
       <form>
         <div class="row">
+          <div class="mx-auto">
+            <label for="myfile">Profile picture:</label>
+            <input type="file" id="profiepic" name="profilepic"accept="image/gif, image/jpeg, image/png"> 
+        </div>
+        </div>
+        <div class="row">
           <div class="col-md">
             <div class="form-group">
               <label for="firstname-input">First name: </label>
@@ -47,6 +53,19 @@
                 id="lastname-input"
                 name="lastName"
                 placeholder="Last name"
+              />
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-group">
+              <label for="phone-input">Phone number: </label
+              ><input
+                type="tel"
+                class="form-control"
+                id="phone-input"
+                name="phone_number"
+                placeholder="Your phone number"
               />
             </div>
           </div>

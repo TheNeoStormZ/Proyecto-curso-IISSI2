@@ -30,7 +30,7 @@ function main() {
             averageStars: 3.5,
             likes: 50,
             comments: 100000,
-            url: "https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg",
+            url: "https://www.carolinescooking.com/wp-content/uploads/2015/04/Spanish-tortilla-espanola-photo.jpg",
             date: " 01/01/2021 ",
 
         },
