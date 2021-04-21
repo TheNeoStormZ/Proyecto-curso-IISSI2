@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/docs/images/user.svg" />
+    <link rel="stylesheet" href="/docs/styles.css" />
+    <script src="/docs/js/utils/include.js"></script>
+    <title>Edit Profie</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width , initial-scale=1 ,shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <script src="/js/libs/jquery-3.4.1.min.js"></script>
+    <script src="/js/libs/popper.min.js"></script>
+    <script src="/js/libs/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="sticky-top" id="page-header"></div>
+
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md">
+          <h3>
+            Edit my info <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </h3>
+        </div>
+      </div>
+      <div class="user-unified-details">
+        <div class="row text-left">
+          <div class="col-md" id="user-info-column">
+            <img src="images/user1.svg" alt="User photo" class="user-photo" />
+            <label
+              for="profiepic"
+              class="btn btn-outline-primary my-2 my-sm-0"
+              type="submit"
+            >
+              Upload photo
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              <input
+                type="file"
+                id="profiepic"
+                name="profilepic"
+                accept="image/gif, image/jpeg, image/png"
+                hidden
+              />
+            </label>
+          </div>
+          <div class="col-md" id="user-details-column">
+            <form>
+              <div class="form-group">
+                <label for="real-name">Your name: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="real-name"
+                  value="Lucas"
+                />
+              </div>
+              <div class="form-group">
+                <label for="real-name">Your surname: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="surname"
+                  value="Garcia"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Your phone number: </label>
+                <input
+                  type="phone"
+                  class="form-control"
+                  id="phone"
+                  value="+34000000000"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="e-mail">Your e-mail number: </label>
+                <input
+                  type="e-mail"
+                  class="form-control"
+                  id="e-mail"
+                  value="lucasgarcia@gmail.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-left">
+        <div class="col-md" id="user-info-column">
+          <h3>Edit my account <i class="fa fa-user" aria-hidden="true"></i></h3>
+        </div>
+      </div>
+      <div class="user-unified-details">
+      <div class="row text-left">
+        <div class="col-md" id="user-info-column">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="surname" value="lucasgarcia">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password">
+          </div>
+
+          <div class="form-group">
+            <label for="password2">Re- enter the password</label>
+            <input type="password" class="form-control" id="password2">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <script>
+      include("header.html", "#page-header");
+    </script>
+  </body>
+</html>

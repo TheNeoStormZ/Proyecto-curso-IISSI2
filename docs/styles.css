@@ -1,3 +1,6 @@
+
+
+
 /*User Profile*/
 .user-displayed-photos {
   max-width: 100%;
@@ -16,6 +19,8 @@
 .user-photo {
   width: 30%;
   text-align: center;
+  margin-bottom: 8%;
+  margin-right: 5%;
 }
 #user-name {
   text-align: center;

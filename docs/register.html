@@ -29,13 +29,21 @@
       <form>
         <div class="row">
           <div class="mx-auto">
-            <label for="myfile">Profile picture:</label>
-            <input
-              type="file"
-              id="profiepic"
-              name="profilepic"
-              accept="image/gif, image/jpeg, image/png"
-            />
+            <label
+              for="profiepic"
+              class="btn btn-outline-primary my-2 my-sm-0"
+              type="submit"
+            >
+              Upload photo
+              <i class="fa fa-upload" aria-hidden="true"></i>
+              <input
+                type="file"
+                id="profiepic"
+                name="profilepic"
+                accept="image/gif, image/jpeg, image/png"
+                hidden
+              />
+            </label>
           </div>
         </div>
         <div class="row">
