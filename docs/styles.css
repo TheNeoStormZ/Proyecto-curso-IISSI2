@@ -1,51 +1,52 @@
-.user-displayed-photos{
+/*User Profile*/
+.user-displayed-photos {
   max-width: 100%;
-  margin-bottom:8%;
+  margin-bottom: 8%;
 }
-.fixed-bottom{
+.fixed-bottom {
   padding-top: 1%;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 }
-
-.user-displayed-photo{
+#user-social-details-column a {
+  color: black;
+}
+.user-displayed-photo {
   max-width: 100%;
-  margin-bottom:10px;
 }
-.user-photo{
+.user-photo {
   width: 30%;
   text-align: center;
 }
-
-#user-name{
+#user-name {
   text-align: center;
 }
 
-.user-unified-details{
-    font-weight : bold;
+.user-unified-details {
+  font-weight: bold;
 }
 
+/*Used for the espace in buttons*/
+.btn {
+  margin-top: 10px;
+}
+/*Img-fluid is from index.html --> photo.js*/
+.img-fluid {
+  margin-bottom: 10px;
+}
+/*This is used for all the titles across pages*/
+.col-md,
+.title {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
 
-.btn{
-  margin-top:10px;
-}
-.img-fluid{
-  margin-bottom:10px;
-}
-
-.col-md, .title {
-  margin-top:10px;
-  margin-bottom:20px;
-}
+/*Used for index.html*/
 .card-horizontal {
   display: flex;
   flex: 1 1 auto;
 }
-.vertical-align-photo-text{
+.vertical-align-photo-text {
   vertical-align: middle;
-}
-
-.nav-bar{
-  position: sticky;
 }
 
 div.photo-block {
@@ -53,15 +54,20 @@ div.photo-block {
   text-align: center;
   margin-bottom: 30px;
   border: 1px solid gray;
-
 }
+/*This is used for forms*/
 .input-group label {
   display: inline-block;
   width: 200px;
   text-align: right;
 }
-.input-group{
+.input-group {
   margin-bottom: 0.5em;
+}
+/*This is for the navbar*/
+
+.nav-bar {
+  position: sticky;
 }
 
 div.title-block {
