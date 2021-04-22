@@ -1,6 +1,12 @@
+/*Photo Upload*/
 
+.uploaded-photo{
 
+  margin-bottom: 8%;
+  margin-left: 8%;
+  margin-right: 8%;
 
+}
 /*User Profile*/
 .user-displayed-photos {
   max-width: 100%;
