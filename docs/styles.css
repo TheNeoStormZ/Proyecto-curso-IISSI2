@@ -13,7 +13,6 @@
   margin-bottom: 8%;
 }
 .fixed-bottom {
-  padding-top: 1%;
   background-color: whitesmoke;
 }
 #user-social-details-column a {
@@ -25,7 +24,6 @@
 .user-photo {
   width: 30%;
   text-align: center;
-  margin-bottom: 8%;
   margin-right: 5%;
 }
 #user-name {
@@ -36,14 +34,6 @@
   font-weight: bold;
 }
 
-/*Used for the espace in buttons*/
-.btn {
-  margin-top: 10px;
-}
-/*Img-fluid is from index.html --> photo.js*/
-.img-fluid {
-  margin-bottom: 10px;
-}
 /*This is used for all the titles across pages*/
 .col-md,
 .title {
@@ -56,25 +46,13 @@
   display: flex;
   flex: 1 1 auto;
 }
-.vertical-align-photo-text {
-  vertical-align: middle;
-}
 
 div.photo-block {
   margin: auto;
   text-align: center;
-  margin-bottom: 30px;
   border: 1px solid gray;
 }
-/*This is used for forms*/
-.input-group label {
-  display: inline-block;
-  width: 200px;
-  text-align: right;
-}
-.input-group {
-  margin-bottom: 0.5em;
-}
+
 /*This is for the navbar*/
 
 .nav-bar {
@@ -83,8 +61,6 @@ div.photo-block {
 
 div.title-block {
   text-align: center;
-  padding-top: 1%;
-  padding-bottom: 1%;
   background-color: #eeeeee;
 }
 #title {
@@ -99,14 +75,4 @@ div.title-block {
   font-style: italic;
   color: #555555;
   font-family: monospace;
-}
-
-div.navigation > a {
-  color: white;
-  font-size: 120%;
-  background-color: #555555;
-  font-family: monospace;
-  text-decoration: none;
-  display: inline-block;
-  min-width: 150px;
 }
