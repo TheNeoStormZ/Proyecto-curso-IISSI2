@@ -1,3 +1,9 @@
+/*Trending photos*/
+.trending-displayed-photos{
+  
+margin-bottom: 2%;
+}
+
 /*Photo Upload*/
 
 .uploaded-photo{
@@ -40,11 +46,21 @@
   margin-top: 2%;
   margin-bottom: 2%;
 }
-
-/*Used for index.html*/
-.card-horizontal {
+/*Friends list*/
+.card-horizontal-always {
   display: flex;
   flex: 1 1 auto;
+}
+
+/*Used for index.html*/
+/*Only activated on desktop*/
+@media all and (min-width: 992px)
+{
+  .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  
 }
 
 div.photo-block {
