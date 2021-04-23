@@ -1,4 +1,14 @@
+/**Trending users*/
+@media not all and (min-width: 767px) and (max-width: 992px)
+{
+  .card-horizontal-trending-users {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  
+}
 /*Trending photos*/
+
 .trending-displayed-photos{
   
 margin-bottom: 2%;
@@ -42,6 +52,7 @@ margin-bottom: 2%;
 
 /*This is used for all the titles across pages*/
 .col-md,
+.col-md-3,
 .title {
   margin-top: 2%;
   margin-bottom: 2%;
