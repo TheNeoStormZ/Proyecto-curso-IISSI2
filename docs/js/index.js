@@ -12,11 +12,11 @@ function main() {
         {
             title: " Samoyed ",
             description: "A very good boy. ",
-            userName: "User1",
+            userName: "lightbringer",
             userId: 1,
             averageStars: 4.3,
             likes: 25,
-            comments: 100,
+            comments: 3,
             url: "https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg",
             date: " 15/08/2020 ",
 
@@ -25,7 +25,7 @@ function main() {
         {
             title: " Spanish tortilla ",
             description: " With onion ",
-            userName: "User2",
+            userName: "lightbringer",
             userId: 2,
             averageStars: 3.5,
             likes: 50,
@@ -38,7 +38,7 @@ function main() {
         {
             title: " Seville ",
             description: "The beautiful city of Seville ",
-            userName: "TNS",
+            userName: "lightbringer",
             userId: 3,
             averageStars: 4.9,
             likes: 35,
@@ -50,7 +50,7 @@ function main() {
         {
             title: " Abstract art",
             description: " Clipart ",
-            userName: "User4",
+            userName: "lightbringer",
             userId: 4,
             averageStars: 4.2,
             likes: 12,

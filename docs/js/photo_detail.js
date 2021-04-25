@@ -5,11 +5,11 @@ function main() {
   let photo = {
     title: " Samoyed ",
     description: "A very good boy. ",
-    userName: "User1",
+    userName: "lightbringer",
     userId: 1,
     averageStars: 4.3,
     likes: 25,
-    comments: 100,
+    comments: 3,
     url: "https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg ",
     date: " 15/08/2020 ",
   };

@@ -1,5 +1,5 @@
 /**Trending users*/
-@media not all and (min-width: 767px) and (max-width: 992px)
+@media not all and (min-width: 768px) and (max-width: 992px)
 {
   .card-horizontal-trending-users {
     display: flex;

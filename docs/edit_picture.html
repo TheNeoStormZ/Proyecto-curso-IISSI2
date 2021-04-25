@@ -41,8 +41,9 @@
               </select>
             </div>
             <div class="form-group">
-            <button type="button" class="btn btn-danger">Delete photo <i class="fa fa-trash" aria-hidden="true"></i>
-            </button>
+              <button type="button" class="btn btn-danger">
+                Delete photo <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
             </div>
           </div>
           <div class="col-md-6" id="photo-details-column">
@@ -64,38 +65,73 @@
                 hidden
               />
             </div>
+            <div class="form-group">
+              <label for="title_new"><h6>Photo Title:</h6></label>
+              <input
+                type="text"
+                id="title_new"
+                name="title_new"
+                class="form-control"
+                size="15"
+                placeholder="My Title"
+                required
+              />
+            </div>
+            <div class="form-group">
             <label for="photo_desc"><h6>Photo Description:</h6></label>
-            <textarea  class="form-control" rows="5" cols="60"  id="photo_desc" name="photo_desc" placeholder="Enter a Description"></textarea>
+            <textarea
+              class="form-control"
+              rows="5"
+              cols="60"
+              id="photo_desc"
+              name="photo_desc"
+              placeholder="Enter a Description"
+            ></textarea>
+          </div>
           </div>
 
           <div class="col-md-3">
             <div class="form-group">
-            <label for="phcat"> <h6>Photo categories:</h6> </label>
-            <select
-              class="form-control"
-              name="phcat"
-              id="phcat"
-              multiple
-              size="4"
-            >
-              <option value="DIY">DIY</option>
-              <option value="Tech">Tech</option>
-              <option value="Space">Space</option>
-              <option value="Nature">Nature</option>
-            </select>
+              <label for="phcat"> <h6>Photo categories:</h6> </label>
+              <select
+                class="form-control"
+                name="phcat"
+                id="phcat"
+                multiple
+                size="4"
+              >
+                <option value="DIY">DIY</option>
+                <option value="Tech">Tech</option>
+                <option value="Space">Space</option>
+                <option value="Nature">Nature</option>
+              </select>
             </div>
             <div class="form-group">
-            <label for="new_cat"><h6>Create a category:</h6></label>
-            <input
-              type="text"
-              id="new_cat"
-              name="new_cat"
-              class="form-control"
-              required
-              minlength="4"
-              maxlength="15"
-              size="15"
-            />
+              <label for="new_cat"><h6>Create a category:</h6></label>
+              <input
+                type="text"
+                id="new_cat"
+                name="new_cat"
+                class="form-control"
+                required
+                minlength="4"
+                maxlength="15"
+                size="15"
+                placeholder="mycategory,mypet,etc.."
+              />
+            </div>
+            <div class="form-group">
+              <label for="custom_id"><h6>Custom photo link:</h6></label>
+              <label>showcase.com/photo/</label>
+             <input
+                type="text"
+                id="custom_id"
+                name="custom_id"
+                class="form-control"
+                size="15"
+                value="416587"
+  
+              />
             </div>
           </div>
         </div>
