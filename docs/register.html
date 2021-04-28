@@ -7,6 +7,7 @@
     <link rel="icon" href="/docs/images/add.svg" />
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
+    <script  src="js/register.js" type="module"></script>
     <title>Registro</title>
 
     <meta
@@ -26,7 +27,8 @@
       <h2 class="title">
         Register a new user <i class="fa fa-plus-circle" aria-hidden="true"></i>
       </h2>
-      <form>
+      <div id="errors"></div>
+      <form  id="register-form">
         <div class="row">
           <div class="mx-auto">
             <label
@@ -54,7 +56,7 @@
                 type="text"
                 class="form-control"
                 id="firstname-input"
-                name="fistName"
+                name="firstName"
                 placeholder="First name"
                 required
               />

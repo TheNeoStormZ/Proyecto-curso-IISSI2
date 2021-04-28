@@ -6,7 +6,7 @@ const photoRenderer = {
   asCard: function (photo) {
     let html = `<div class= " col-md">
                   <div class="photo-block">
-                    <div class= " card">
+                    <div class= "card">
                     <div class="card-horizontal">
                     <a href= "photo_detail.html">
                     <img src= "${photo.url}" class= " card-img-top ">
