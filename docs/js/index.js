@@ -1,22 +1,24 @@
 "use strict ";
 
+import { photosAPI } from "/js/api/photos.js";
 import { galleryRenderer } from "/js/renderers/gallery.js";
-
+import { messageRenderer } from "/js/renderers/messages.js";
+/*
 function handleMouseEnter(event) {
-    let card = event.target;
-    card.style.backgroundColor = "black";
-    card.style.color = "white";
-  }
-  function handleMouseLeave(event) {
-    let card = event.target;
-    card.style.backgroundColor = "white";
-    card.style.color = "black";
-  }
+  let card = event.target;
+  card.style.backgroundColor = "black";
+  card.style.color = "white";
+}
+function handleMouseLeave(event) {
+  let card = event.target;
+  card.style.backgroundColor = "white";
+  card.style.color = "black";
+}*/
 
 function main() {
   let button = document.getElementById("test-button");
   button.onclick = clickHandler;
-
+  /*
   let container = document.querySelector("div.container");
 
   let photos = [
@@ -70,12 +72,22 @@ function main() {
       date: " 14/08/2019 ",
     },
   ];
+*/
+  let galleryContainer = document.querySelector("div.container");
 
+  photosAPI
+    .getAll()
+    .then((photos) => {
+      
+      let gallery = galleryRenderer.asCardGallery(photos);
+      galleryContainer.appendChild(gallery);
+    })
+    .catch((error) => messageRenderer.showErrorMessage(error));
+  /*
   let gallery = galleryRenderer.asCardGallery(photos);
 
   container.appendChild(gallery);
-
-
+*/
   let cards = document.querySelectorAll("div.card");
   for (let card of cards) {
     card.onmouseenter = handleMouseEnter;
@@ -88,6 +100,5 @@ function clickHandler(event) {
   let text = target.textContent;
   alert(text + "no implementado");
 }
-
 
 document.addEventListener("DOMContentLoaded", main);

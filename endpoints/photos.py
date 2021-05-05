@@ -9,6 +9,15 @@ def get_all():
     pass
 
 ###############################################################################
+@endpoint(
+    route="/photosusers",
+    method="GET",
+    sql="SELECT * FROM photoswithusers"
+)
+def get_all():
+    pass
+
+###############################################################################
 
 @endpoint(
     route="/photos/$photoId",
