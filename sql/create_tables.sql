@@ -21,7 +21,7 @@ CREATE TABLE Photos (
 	visibility VARCHAR(16) NOT NULL,
 	userId INT NOT NULL,
 	FOREIGN KEY (userId) REFERENCES Users (userId),
-	CONSTRAINT ValidVisibility CHECK (visibility in ('Public', 'Private'))
+	CONSTRAINT ValidVisibility CHECK (visibility in ('Public', 'Private','Friends'))
 );
 
 -- Create the rest of your tables...

@@ -15,7 +15,9 @@ margin-bottom: 2%;
 }
 
 /*Photo Upload*/
-
+#button-delete{
+  display: none;
+}
 .uploaded-photo{
 
   margin-bottom: 8%;
