@@ -34,7 +34,7 @@ def get_by_id():
     method="POST",
     sql="INSERT INTO Photos (title, description, url, visibility, userId) VALUES ($title, $description, $url, $visibility, $userId)",
     description="Creates a new photo",
-    auth_required=False,
+    auth_required=True,
 )
 def create(title, description, url, visibility, userId):
     pass

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
     <script src="js/photo_detail.js" type="module"></script>
+    <script  src="js/header.js" type="module"></script>
     <title>Photo Details</title>
 
     <meta
@@ -32,8 +33,8 @@
         </div>
       </div>
       <div class="row text-center">
-        <div class="col-md-9" id="photo-details-column"></div>
-        <div class="col-md-3">
+        <div class="col-md" id="photo-details-column"></div>
+        <div class="col-md-3" id="actions-col">
           <div class="form-group">
             <a href="edit_picture.html"
               ><button class="btn btn-primary" id="button-edit">Edit photo</button></a
@@ -69,6 +70,7 @@
       </div>
       <div class="row text-left">
         <div class="col-md">
+          <div id="add-comment">
           <form action="">
             <div class="form-group">
               <label for="new_comment"><h4>Add a comment:</h4></label>
@@ -88,6 +90,7 @@
               </button>
             </div>
           </form>
+        </div>
           <hr />
           <div class="comments-block">
               <div class="card mb-3">

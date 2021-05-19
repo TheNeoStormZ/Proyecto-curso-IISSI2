@@ -1,5 +1,6 @@
 "use  strict";
 import { photosAPI } from "/js/api/photos.js";
+import { sessionManager } from "/js/utils/session.js";
 import { messageRenderer } from "/js/renderers/messages.js";
 
 let urlParams = new URLSearchParams(window.location.search);
@@ -23,7 +24,7 @@ function main() {
     let formData = new FormData(form);
     if (currentPhoto === null) {
       //  Creating a new  photo// Add the  current  user's ID
-      formData.append("userId", 1);
+      formData.append("userId", sessionManager.getLoggedId());
       photosAPI
         .create(formData)
         .then((data) => (window.location.href = "index.html"))

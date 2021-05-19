@@ -4,9 +4,9 @@ const userValidator = {
     let errors = [];
 
     let firstName = formData.get("firstName");
-    let lastName = formData.get("firstSurname");
-    let password = formData.get("pass");
-    let password2 = formData.get("repeatpasword");
+    let lastName = formData.get("lastName");
+    let password = formData.get("password");
+    let password2 = formData.get("password2");
 
     if (firstName.length < 3 || lastName.length < 3) {
       errors.push(

@@ -5,8 +5,8 @@
 # Shows debug messages while Silence is running
 DEBUG_ENABLED = False
 
-SECRET_KEY = "Change this to any random string"
-
+#SECRET_KEY = "Change this to any random string"
+SECRET_KEY = "g8vLqD2UbvQa!Su$58&jsy@GFK7"
 # Database connection details
 DB_CONN = {
     "host": "127.0.0.1",
