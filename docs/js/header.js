@@ -11,9 +11,9 @@ function showUser() {
   let text;
   if (sessionManager.isLogged()) {
     let username = sessionManager.getLoggedUser().username;
-    text = "Hi , @" + username;
+    text = "Hi ," + username;
   } else {
-    text = "Anonymous";
+    text = "Guest";
   }
   title.textContent = text;
 }
@@ -27,13 +27,17 @@ function addLogoutHandler() {
 }
 
 function hideHeaderOptions() {
-  let headerLogout = document.getElementById("navbar-logout")
+  let headerLogout = document.getElementById("navbar-logout");
   let headerCreate = document.getElementById("navbar-create");
+  let headerProfile = document.getElementById("navbar-profile");
   if (sessionManager.isLogged()) {
 
   } else {
     headerCreate.style.display = "none";
     headerLogout.style.display = "none";
+    headerProfile.href="../login.html";
+    headerProfile.innerText="Log In";
+    
   }
 }
 

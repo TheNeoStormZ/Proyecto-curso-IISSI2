@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
     <script  src="js/header.js" type="module"></script>
+    <script  src="js/login.js" type="module"></script>
+    <script src="js/libs/axios.min.js"></script>
     <title>Login</title>
 
     <meta
@@ -27,7 +29,8 @@
       <div class="title">
         <h2>Log In <i class="fa fa-key" aria-hidden="true"></i></h2>
       </div>
-      <form>
+      <div id="errors"></div>
+      <form id = "login-form">
         <div class="row">
           <div class="mx-auto">
             <img src="images/camera.png" alt="logo" />
@@ -41,7 +44,7 @@
                 type="text"
                 class="form-control"
                 id="user-input"
-                name="user"
+                name="username"
                 placeholder="Username"
               />
             </div>
@@ -53,7 +56,7 @@
                 type="password"
                 class="form-control"
                 id="password-input"
-                name="pass"
+                name="password"
                 placeholder="Pasword"
               />
             </div>
