@@ -9,6 +9,15 @@ def get_all():
     pass
 
 ###############################################################################
+@endpoint(
+    route="/photosusers",
+    method="GET",
+    sql="SELECT * FROM photoswithusers"
+)
+def get_all():
+    pass
+
+###############################################################################
 
 @endpoint(
     route="/photos/$photoId",
@@ -37,7 +46,7 @@ def create(title, description, url, visibility, userId):
     method="PUT",
     sql="UPDATE Photos SET title = $title, description = $description, url = $url, visibility = $visibility WHERE photoId = $photoId",
     description="Updates an existing photo",
-    auth_required=True,
+    auth_required=False,
 )
 def update(title, description, url, visibility):
     pass
@@ -49,7 +58,7 @@ def update(title, description, url, visibility):
     method="DELETE",
     sql="DELETE FROM Photos WHERE photoId = $photoId",
     description="Removes a photo",
-    auth_required=True,
+    auth_required=False,
 )
 def delete():
     pass

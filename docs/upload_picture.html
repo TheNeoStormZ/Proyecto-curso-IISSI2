@@ -7,22 +7,28 @@
     <link rel="icon" href="/docs/images/photo_studio.svg" />
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
+    <script  src="js/header.js" type="module"></script>
     <title>Photo Studio</title>
 
     <meta
       name="viewport"
       content="width=device-width , initial-scale=1 ,shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/font-awesome.min.css" />
-    <script src="/js/libs/jquery-3.4.1.min.js"></script>
-    <script src="/js/libs/popper.min.js"></script>
-    <script src="/js/libs/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="docs/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="docs/css/font-awesome.min.css" />
+    <script src="/docs/js/libs/jquery-3.4.1.min.js"></script>
+    <script src="/docs/js/libs/popper.min.js"></script>
+    <script src="/docs/js/libs/bootstrap.min.js"></script>
+
+    <script src="/docs/js/libs/axios.min.js"></script>
+    <script src="/docs/js/edit_picture.js" type="module"></script>
+
   </head>
   <body>
     <div class="sticky-top" id="page-header"></div>
+    <div id="errors"></div>
     <div class="container">
-      <form>
+      <form id="form-photo-upload">
         <div class="row text-left">
           <div class="col-md">
             <h2>
@@ -33,40 +39,40 @@
         <div class="row text-center">
           <div class="col-md-3">
             <div class="form-group">
-              <label for="rating-input"><h6>Photo Visibility</h6></label
-              ><select id="rating-input" name="rating" class="form-control">
-                <option value="1">Public</option>
-                <option value="2">Private</option>
-                <option value="3">Friends</option>
+              <label for="input-visibility"><h6>Photo Visibility</h6></label
+              ><select id="input-visibility" name="visibility" class="form-control">
+                <option value="Public">Public</option>
+                <option value="Private">Private</option>
+                <option value="Friends">Friends</option>
               </select>
             </div>
-          </div>
-          <div class="col-md-6" id="photo-details-column">
-            <img src="images/image.svg" alt="" class="uploaded-photo" />
             <div class="form-group">
-              <label
-                for="uploadpicture"
-                class="btn btn-outline-primary my-2 my-sm-0"
-                type="submit"
-              >
-                Upload photo
-                <i class="fa fa-upload" aria-hidden="true"></i>
-              </label>
+              <button type="button" id="button-delete" class="btn btn-danger">
+                Delete photo <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <img src="images/image.svg" alt="" class="uploaded-photo" id="myImage" />
+            </div>
+            <div class="form-group">
+              <label for="input-url">URL:</label>
               <input
-                type="file"
-                id="uploadpicture"
-                name="uploadpicture"
-                accept="image/gif, image/jpeg, image/png"
                 required
-                hidden
+                type="text"
+                class="form-control"
+                id="input-url"
+                name="url"
+                placeholder="Photo URL"
               />
             </div>
             <div class="form-group">
               <label for="title_new"><h6>Photo Title:</h6></label>
               <input
                 type="text"
-                id="title_new"
-                name="title_new"
+                id="input-title"
+                name="title"
                 class="form-control"
                 size="15"
                 placeholder="My Title"
@@ -79,8 +85,8 @@
                 class="form-control"
                 rows="5"
                 cols="60"
-                id="photo_desc"
-                name="photo_desc"
+                id="input-description"
+                name="description"
                 placeholder="Enter a Description"
                 required
               ></textarea>
@@ -93,7 +99,7 @@
               <select
                 class="form-control"
                 name="phcat"
-                id="phcat"
+                id="input-phcat"
                 multiple
                 size="4"
               >
@@ -131,8 +137,8 @@
           <div class="col-md">
             <h2>
               <div class="form-group">
-                <button type="button" class="btn btn-danger">Discard</button>
-                <button type="submit" class="btn btn-primary">
+                <button type="button" id="button-delete" class="btn btn-danger">Discard</button>
+                <button type="submit"  id="button-edit" class="btn btn-primary">
                   Upload <i class="fa fa-upload" aria-hidden="true"></i>
                 </button>
               </div>
