@@ -22,6 +22,7 @@ function main() {
     .getById(userId)
     .then((data) => {
       let currentProfile = data[0];
+      console.log(currentProfile);
       userPhoto.src = currentProfile.avatarUrl;
       realName.value = currentProfile.firstName;
       fisrtSurname.value = currentProfile.lastName;

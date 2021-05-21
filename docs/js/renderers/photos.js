@@ -45,6 +45,29 @@ const photoRenderer = {
     loadUsernameCard(card, photo.userId);
     return card;
   },
+
+  asLittleCard: function (photo) {
+    let html = `
+    <div class="col-md">
+    <div class="card">
+    <a href="photo_detail.html?photoId=${photo.photoId}">
+        <img
+          src="${photo.url}"
+          alt="photo1"
+          class="user-displayed-photo"
+        />
+      </a>
+      <h4 class="text-center">${photo.title}</h4>
+      <div class="card-footer">
+        <small class="text-muted">${photo.visibility} photo</small>
+      </div>
+    </div>
+  </div>`;
+
+    let card = parseHTML(html);
+    loadUsernameCard(card, photo.userId);
+    return card;
+  },
 };
 
 function loadUsernameCard(card, userId) {

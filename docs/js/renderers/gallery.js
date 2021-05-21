@@ -24,6 +24,16 @@ const galleryRenderer = {
     }
     return galleryContainer;
   },
+
+  asProfile: function (photos) {
+    let galleryContainer = parseHTML('<div class="card-deck">');
+
+    for (let photo of photos) {
+    let card = photoRenderer.asLittleCard(photo);
+    galleryContainer.appendChild(card);
+    }
+    return galleryContainer;
+  },
 };
 
 export { galleryRenderer };

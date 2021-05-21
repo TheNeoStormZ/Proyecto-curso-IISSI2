@@ -1,6 +1,7 @@
 "use strict ";
 
 import { usersAPI } from "/js/api/users.js";
+import { photosAPI } from "/js/api/photos.js";
 import { galleryRenderer } from "/js/renderers/gallery.js";
 import { sessionManager } from "/js/utils/session.js";
 import {profileRenderer} from "/js/renderers/profile.js";
@@ -14,6 +15,7 @@ function main() {
     }
 
     let detailsContainer = document.getElementById("user-details");
+    let photoContainer = document.getElementById("user-photos");
   usersAPI
     .getById(userId)
     .then((data) =>  {
@@ -25,6 +27,15 @@ function main() {
        detailsContainer.appendChild(profile);
       })
     .catch((error) => messageRenderer.showErrorMessage(error));
+
+    photosAPI
+    .getByUserId(userId)
+    .then((photos) => {
+      let gallery = galleryRenderer.asProfile(photos);
+      photoContainer.appendChild(gallery);
+    })
+    .catch((error) => messageRenderer.showErrorMessage(error));
+
     
 }
 

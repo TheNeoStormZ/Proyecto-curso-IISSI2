@@ -26,6 +26,14 @@ const photosAPI = {
         .catch((error) => reject(error.response.data.message));
     });
   },
+  getByUserId: function (userId) {
+    return new Promise(function (resolve, reject) {
+      axios
+        .get(`${BASE_URL}/users/${userId}/photos`, requestOptions)
+        .then((response) => resolve(response.data))
+        .catch((error) => reject(error.response.data.message));
+    });
+  },
   create: function (formData) {
     return new Promise(function (resolve, reject) {
       axios

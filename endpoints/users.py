@@ -1,4 +1,5 @@
 from silence.decorators import endpoint
+from werkzeug.security import generate_password_hash
 
 @endpoint(
     route="/users/$userId",
@@ -12,9 +13,9 @@ def get_by_id():
 @endpoint(
    route="/users/$userId",
     method="PUT",
-    sql="UPDATE Users SET firstName = $firstName, lastName = $lastName, email = $email, username = $username, password = $password, avatarUrl=avatarUrl WHERE userId = $userId",
+    sql="UPDATE Users SET firstName = $firstName, lastName = $lastName, secondSurname = $secondSurname, email = $email, username = $username, avatarUrl=avatarUrl WHERE userId = $userId",
     description="Updates an existing user",
     auth_required=True,
 )
-def update(firstName, lastName, email, username, password,avatarUrl):
+def update(firstName, lastName,secondSurname, email, username,avatarUrl):
     pass

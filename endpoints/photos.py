@@ -29,6 +29,17 @@ def get_by_id():
 
 ###############################################################################
 
+
+@endpoint(
+    route="/users/$userId/photos",
+    method="GET",
+    sql="SELECT * FROM Photos WHERE userId = $userId"
+)
+def get_by_id():
+    pass
+
+###############################################################################
+
 @endpoint(
     route="/photos",
     method="POST",
