@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
     <script  src="js/header.js" type="module"></script>
+    <script src="js/libs/axios.min.js"></script>
+    <script src="js/edit_profile.js" type="module"></script>
     <title>Edit Profie</title>
 
     <meta
@@ -25,6 +27,7 @@
     <div class="sticky-top" id="page-header"></div>
 
     <div class="container">
+      <div id="errors"></div>
       <div class="row text-left">
         <div class="col-md">
           <h3>
@@ -33,7 +36,7 @@
         </div>
       </div>
       <div class="user-unified-details">
-        <form action="">
+        <form action="" id="user-edit">
           <div class="row text-left">
             <div class="col-md" id="user-info-column">
               <div class="form-group">
@@ -41,6 +44,7 @@
                   src="images/user1.svg"
                   alt="User photo"
                   class="user-photo"
+                  id ="user-photo"
                 />
                 <label
                   for="profiepic"
@@ -65,7 +69,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="real_name"
+                  name="firstName"
                   id="real-name"
                   value="Lucas"
                   required
@@ -77,7 +81,7 @@
                   type="text"
                   class="form-control"
                   id="first-surname-input"
-                  name="firstSurname"
+                  name="lastName"
                   value="Garcia"
                   required
                 />
@@ -89,7 +93,7 @@
                   type="text"
                   class="form-control"
                   id="second-surname-input"
-                  name="second-surname"
+                  name="secondSurname"
                   value="Fernandez"
                 />
               </div>
@@ -106,13 +110,8 @@
                   required
                 />
               </div>
-
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Save</button>
-              </div>
             </div>
           </div>
-        </form>
       </div>
 
       <div class="row text-left">
@@ -121,7 +120,6 @@
         </div>
       </div>
       <div class="user-unified-details">
-        <form action="">
           <div class="row text-left">
             <div class="col-md" id="user-info-column">
               <div class="form-group">
@@ -130,7 +128,7 @@
                   type="text"
                   class="form-control"
                   name="username"
-                  id="surname"
+                  id="username"
                   value="lucasgarcia"
                   required
                 />

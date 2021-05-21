@@ -5,6 +5,7 @@ import { galleryRenderer } from "/js/renderers/gallery.js";
 import { messageRenderer } from "/js/renderers/messages.js";
 
 
+
 function main() {
   let button = document.getElementById("test-button");
   button.onclick = clickHandler;
@@ -14,17 +15,11 @@ function main() {
   photosAPI
     .getAll()
     .then((photos) => {
-      
       let gallery = galleryRenderer.asCardGallery(photos);
       galleryContainer.appendChild(gallery);
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
 
-  let cards = document.querySelectorAll("div.card");
-  for (let card of cards) {
-    card.onmouseenter = handleMouseEnter;
-    card.onmouseleave = handleMouseLeave;
-  }
 }
 
 function clickHandler(event) {

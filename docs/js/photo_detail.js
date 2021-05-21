@@ -9,6 +9,7 @@ let photoId = urlParams.get("photoId");
 let userId;
 
 function main() {
+   //getId();
   let photoContainer = document.querySelector("#photo-details-column");
   photosAPI
     .getById(photoId)
@@ -16,28 +17,27 @@ function main() {
       let photoDetails = photoRenderer.asDetails(photos[0]);
       userId = photos[0].userId;
       photoContainer.appendChild(photoDetails);
+      hideActionsColumn();
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
   let editBtn = document.querySelector("#button-edit");
   editBtn.onclick = handleEdit;
-  getId();
 }
 
 function handleEdit(event) {
   window.location.href = "upload_picture.html?photoId=" + photoId;
   return false; //Forzamos a que se evalue antes
 }
-
+/*
 async function getId() {
   photosAPI
     .getById(photoId)
     .then((photos) => {
       userId = photos[0].userId;
       console.log("Done! User id: " + userId);
-      hideActionsColumn();
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
-}
+}*/
 
 function hideActionsColumn() {
   let actions_col = document.getElementById("actions-col");

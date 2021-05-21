@@ -46,7 +46,7 @@ def create(title, description, url, visibility, userId):
     method="PUT",
     sql="UPDATE Photos SET title = $title, description = $description, url = $url, visibility = $visibility WHERE photoId = $photoId",
     description="Updates an existing photo",
-    auth_required=False,
+    auth_required=True,
 )
 def update(title, description, url, visibility):
     pass
@@ -58,7 +58,7 @@ def update(title, description, url, visibility):
     method="DELETE",
     sql="DELETE FROM Photos WHERE photoId = $photoId",
     description="Removes a photo",
-    auth_required=False,
+    auth_required=True,
 )
 def delete():
     pass

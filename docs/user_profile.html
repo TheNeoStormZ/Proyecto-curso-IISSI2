@@ -7,7 +7,9 @@
     <link rel="icon" href="/docs/images/user.svg" />
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
-    <script  src="js/header.js" type="module"></script>
+    <script src="js/header.js" type="module"></script>
+    <script src="js/libs/axios.min.js"></script>
+    <script src="js/user_profile.js" type="module"></script>
     <title>About Me</title>
 
     <meta
@@ -30,140 +32,107 @@
           <h3>About Me <i class="fa fa-user" aria-hidden="true"></i></h3>
         </div>
       </div>
-      <div class="user-unified-details">
-        <div class="row text-left">
-          <div class="col-md" id="user-info-column">
-            <img src="images/user1.svg" alt="User photo" class="user-photo mb-3" />
-            <p class="text-left" id="user-name">lightbringer</p>
-            <a href="user_profile_edit.html"><button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
-              Edit Profile
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            </button>
-          </a>
-          </div>
-          <div class="col-md" id="user-details-column">
-            <p class="text-left" id="user-real-name">Lucas Garcia Fernandez</p>
-            <p class="text-left" id="email">lucasgarcia@gmail.com</p>
-          </div>
-          <div class="col-md" id="user-info-column">
-            <img src="images/group.svg" alt="User photo" class="user-photo" />
-          </div>
-          <div class="col-md" id="user-social-details-column">
-            <p class="text-left" id="user-friends">
-              <a href="user_friends.html" >4 Friends</a>
-            </p>
-            <p class="text-left" id="user-following"> <a href="user_following.html" >Following 4 people</a></p>
-            <p class="text-left" id="user-followers"><a href="user_followers.html" >4 Followers</a></p>
-          </div>
-          <div class="col-md" id="user-info-column">
-            <img src="images/gallery.svg" alt="User photo" class="user-photo" />
-          </div>
+      <div class="user-unified-details" id="user-details"></div>
 
-          <div class="col-md" id="user-photo-counts-column">
-            <p class="text-left" id="user-photos">6 photos uploaded</p>
-            <p class="text-left" id="user-private-photos">6 private photos</p>
-          </div>
+      <div class="row text-left">
+        <div class="col-md">
+          <h2>My Gallery <i class="fa fa-clone" aria-hidden="true"></i></h2>
         </div>
-        <div class="row text-left">
-          <div class="col-md">
-            <h2>My Gallery <i class="fa fa-clone" aria-hidden="true"></i></h2>
-          </div>
-        </div>
-        <div class="user-displayed-photos">
-          <div class="card-deck">
-            <div class="row text-left">
-              <div class="col-md">
-                <div class="card">
-                  <a href="photo_detail.html">
-                    <img
-                      src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
-                      alt="photo1"
-                      class="user-displayed-photo"
-                    />
-                  </a>
-                  <h4 class="text-center">Photo1</h4>
-                  <div class="card-footer">
-                    <small class="text-muted">Private photo</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md">
-                <div class="card">
-                  <a href="photo_detail.html">
-                    <img
-                      src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
-                      alt="photo1"
-                      class="user-displayed-photo"
-                    />
-                  </a>
-                  <h4 class="text-center">Photo2</h4>
-                  <div class="card-footer">
-                    <small class="text-muted">Private photo</small>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md">
-                <div class="card">
-                  <a href="photo_detail.html">
-                    <img
-                      src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
-                      alt="photo1"
-                      class="user-displayed-photo"
-                    />
-                  </a>
-                  <h4 class="text-center">Photo3</h4>
-                  <div class="card-footer">
-                    <small class="text-muted">Private photo</small>
-                  </div>
+      </div>
+      <div class="user-displayed-photos">
+        <div class="card-deck">
+          <div class="row text-left">
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img
+                    src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                    alt="photo1"
+                    class="user-displayed-photo"
+                  />
+                </a>
+                <h4 class="text-center">Photo1</h4>
+                <div class="card-footer">
+                  <small class="text-muted">Private photo</small>
                 </div>
               </div>
             </div>
-            <div class="row text-left">
-              <div class="col-md">
-                <div class="card">
-                  <a href="photo_detail.html">
-                    <img
-                      src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
-                      alt="photo1"
-                      class="user-displayed-photo"
-                    />
-                  </a>
-                  <h4 class="text-center">Photo4</h4>
-                  <div class="card-footer">
-                    <small class="text-muted">Private photo</small>
-                  </div>
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img
+                    src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                    alt="photo1"
+                    class="user-displayed-photo"
+                  />
+                </a>
+                <h4 class="text-center">Photo2</h4>
+                <div class="card-footer">
+                  <small class="text-muted">Private photo</small>
                 </div>
               </div>
-              <div class="col-md">
-                <div class="card">
-                  <a href="photo_detail.html">
-                    <img
-                      src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
-                      alt="photo1"
-                      class="user-displayed-photo"
-                    />
-                  </a>
-                  <h4 class="text-center">Photo5</h4>
-                  <div class="card-footer">
-                    <small class="text-muted">Private photo</small>
-                  </div>
-                </div>
-              </div>
+            </div>
 
-              <div class="col-md">
-                <div class="card">
-                  <a href="photo_detail.html">
-                    <img
-                      src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
-                      alt="photo1"
-                      class="user-displayed-photo"
-                    />
-                  </a>
-                  <h4 class="text-center">Photo6</h4>
-                  <div class="card-footer">
-                    <small class="text-muted">Private photo</small>
-                  </div>
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img
+                    src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                    alt="photo1"
+                    class="user-displayed-photo"
+                  />
+                </a>
+                <h4 class="text-center">Photo3</h4>
+                <div class="card-footer">
+                  <small class="text-muted">Private photo</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row text-left">
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img
+                    src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                    alt="photo1"
+                    class="user-displayed-photo"
+                  />
+                </a>
+                <h4 class="text-center">Photo4</h4>
+                <div class="card-footer">
+                  <small class="text-muted">Private photo</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img
+                    src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                    alt="photo1"
+                    class="user-displayed-photo"
+                  />
+                </a>
+                <h4 class="text-center">Photo5</h4>
+                <div class="card-footer">
+                  <small class="text-muted">Private photo</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md">
+              <div class="card">
+                <a href="photo_detail.html">
+                  <img
+                    src="https://i.ibb.co/tY1Jcnc/wlZCfCv.jpg"
+                    alt="photo1"
+                    class="user-displayed-photo"
+                  />
+                </a>
+                <h4 class="text-center">Photo6</h4>
+                <div class="card-footer">
+                  <small class="text-muted">Private photo</small>
                 </div>
               </div>
             </div>

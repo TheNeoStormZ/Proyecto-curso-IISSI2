@@ -11,7 +11,7 @@ function showUser() {
   let text;
   if (sessionManager.isLogged()) {
     let username = sessionManager.getLoggedUser().username;
-    text = "Hi ," + username;
+    text = "Hi, " + username;
   } else {
     text = "Guest";
   }
@@ -22,7 +22,7 @@ function addLogoutHandler() {
   let logoutButton = document.getElementById("navbar-logout");
   logoutButton.addEventListener("click", function () {
     sessionManager.logout();
-    window.location.href = "index.html";
+    window.location.href = window.location.href;
   });
 }
 
@@ -35,7 +35,7 @@ function hideHeaderOptions() {
   } else {
     headerCreate.style.display = "none";
     headerLogout.style.display = "none";
-    headerProfile.href="../login.html";
+    headerProfile.href="login.html";
     headerProfile.innerText="Log In";
     
   }
