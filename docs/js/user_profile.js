@@ -14,14 +14,15 @@ let aboutHeader = document.getElementById("about-header");
 let galleryHeader = document.getElementById("gallery-header");
 
 function main() {
-    if(!sessionManager.isLogged()){
-        window.location.href = "login.html";
 
-    }
     if (chosenUserId !==null){
       userId = chosenUserId;
       aboutHeader.innerHTML='About User <i class="fa fa-user" aria-hidden="true"></i>';
       galleryHeader.innerHTML='Gallery <i class="fa fa-clone" aria-hidden="true"></i>';
+    }
+
+    if (userId === null){
+      window.location.href = "login.html";
     }
 
     let detailsContainer = document.getElementById("user-details");

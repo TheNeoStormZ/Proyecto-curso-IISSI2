@@ -3,6 +3,7 @@
 import { parseHTML } from "/js/utils/parseHTML.js";
 import { usersAPI } from "/js/api/users.js";
 
+
 const photoRenderer = {
   asCard: function (photo) {
     let html = `<div class= " col-md">
@@ -30,7 +31,7 @@ const photoRenderer = {
     loadUsernameCard(card, photo.userId);
     return card;
   },
-  asDetails: function (photo) {
+  asDetails: function (photo,rating) {
     let html = `<div class= "photo-details">
     <h3 >${photo.title} </h3 >
     <h6 >${photo.description} </h6 >
@@ -38,7 +39,7 @@ const photoRenderer = {
     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
     <hr >
     <img src= "${photo.url}" class= "img-fluid">
-    <p class= " text-right "><img src="/images/star.png"> ${photo.averageStars} stars average</p >
+    <p class= " text-right "><img src="/images/star.png"> ${rating} stars average</p >
     <p class= " text-right "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
     </div >`;
     let card = parseHTML(html);

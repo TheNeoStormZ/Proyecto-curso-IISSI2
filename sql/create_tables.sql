@@ -24,4 +24,14 @@ CREATE TABLE Photos (
 	CONSTRAINT ValidVisibility CHECK (visibility in ('Public', 'Private','Friends'))
 );
 
+CREATE TABLE Ratings (
+	ratingId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	photoId INT NOT NULL,
+	userId INT NOT NULL,
+	rating INT NOT NULL,
+	FOREIGN KEY (userId) REFERENCES Users (userId),
+	FOREIGN KEY (photoId) REFERENCES Photos (photoId),
+	CONSTRAINT ValidRate CHECK (rating BETWEEN 1 AND 5)
+);
+
 -- Create the rest of your tables...

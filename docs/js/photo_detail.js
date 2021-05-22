@@ -3,25 +3,47 @@ import { photosAPI } from "/js/api/photos.js";
 import { photoRenderer } from "/js/renderers/photos.js";
 import { sessionManager } from "/js/utils/session.js";
 import { messageRenderer } from "/js/renderers/messages.js";
+import { ratingsAPI } from "/js/api/ratings.js";
 
 let urlParams = new URLSearchParams(window.location.search);
 let photoId = urlParams.get("photoId");
+let photoContainer = document.querySelector("#photo-details-column");
 let userId;
+let mean;
 
 function main() {
    //getId();
-  let photoContainer = document.querySelector("#photo-details-column");
+ 
+  let editBtn = document.querySelector("#button-edit");
+  editBtn.onclick = handleEdit;
+  getMeanRate();
+  rednderPhoto();
+}
+
+function getMeanRate(){
+  let maxSum = 0;
+  ratingsAPI.getByPhoto(photoId)
+    .then((ratings) => {
+      for (var i in ratings){
+        console.log(ratings[i].rating);
+        maxSum += ratings[i].rating;
+      }
+      console.log("sum: " + maxSum);  
+      mean = maxSum/ratings.length;
+    })
+}
+
+function rednderPhoto(){
+  console.log(mean);
   photosAPI
     .getById(photoId)
     .then((photos) => {
-      let photoDetails = photoRenderer.asDetails(photos[0]);
+      let photoDetails = photoRenderer.asDetails(photos[0],mean);
       userId = photos[0].userId;
       photoContainer.appendChild(photoDetails);
       hideActionsColumn();
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
-  let editBtn = document.querySelector("#button-edit");
-  editBtn.onclick = handleEdit;
 }
 
 function handleEdit(event) {
