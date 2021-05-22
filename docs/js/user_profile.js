@@ -8,10 +8,20 @@ import {profileRenderer} from "/js/renderers/profile.js";
 import { messageRenderer } from "/js/renderers/messages.js";
 
 let userId = sessionManager.getLoggedId();
+let urlParams = new URLSearchParams(window.location.search);
+let chosenUserId = urlParams.get("userId");
+let aboutHeader = document.getElementById("about-header");
+let galleryHeader = document.getElementById("gallery-header");
 
 function main() {
     if(!sessionManager.isLogged()){
         window.location.href = "login.html";
+
+    }
+    if (chosenUserId !==null){
+      userId = chosenUserId;
+      aboutHeader.innerHTML='About User <i class="fa fa-user" aria-hidden="true"></i>';
+      galleryHeader.innerHTML='Gallery <i class="fa fa-clone" aria-hidden="true"></i>';
     }
 
     let detailsContainer = document.getElementById("user-details");
@@ -31,8 +41,14 @@ function main() {
     photosAPI
     .getByUserId(userId)
     .then((photos) => {
+      console.log(photos);
       let gallery = galleryRenderer.asProfile(photos);
       photoContainer.appendChild(gallery);
+      let photoCount = document.getElementById("user-photos-count");
+      let photoPrivateCount = document.getElementById("user-private-photos");
+      let numPrivate = photos.filter(x => x.visibility==='Private');
+      photoCount.textContent= photos.length + " photos uploaded";
+      photoPrivateCount.textContent = numPrivate.length + " private photos"
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
 

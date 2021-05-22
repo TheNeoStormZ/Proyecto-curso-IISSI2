@@ -15,12 +15,16 @@ function main() {
   let secondSurname = document.getElementById("second-surname-input");
   let email = document.getElementById("e-mail");
   let username = document.getElementById("username");
+  let picture = document.getElementById("avatarUrl");
 
   registerForm.onsubmit = handleSubmitEdit;
 
   usersAPI
     .getById(userId)
     .then((data) => {
+      if(data[0].avatarUrl ===null){
+        data[0].avatarUrl = "images/user1.svg";
+    }
       let currentProfile = data[0];
       console.log(currentProfile);
       userPhoto.src = currentProfile.avatarUrl;
@@ -29,6 +33,8 @@ function main() {
       secondSurname.value = currentProfile.secondSurname;
       email.value = currentProfile.email;
       username.value = currentProfile.username;
+      picture.value = currentProfile.avatarUrl;
+
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
 }

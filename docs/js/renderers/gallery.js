@@ -26,11 +26,19 @@ const galleryRenderer = {
   },
 
   asProfile: function (photos) {
-    let galleryContainer = parseHTML('<div class="card-deck">');
+    let galleryContainer = parseHTML('<div class= "card-deck"> </div >');
+    let row = parseHTML('<div class= "row"> </div >');
 
+    galleryContainer.appendChild(row);
+    let counter = 0;
     for (let photo of photos) {
-    let card = photoRenderer.asLittleCard(photo);
-    galleryContainer.appendChild(card);
+      let card = photoRenderer.asLittleCard(photo);
+      row.appendChild(card);
+      counter += 1;
+      if (counter % 3 === 0) {
+        row = parseHTML('<div class= "row"> </div >');
+        galleryContainer.appendChild(row);
+      }
     }
     return galleryContainer;
   },

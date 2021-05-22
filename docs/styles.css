@@ -1,3 +1,9 @@
+/**Photo upload*/
+#uploaded-photo{
+  border: 0;
+  margin-bottom: 1%;
+
+}
 /**Trending users*/
 @media not all and (min-width: 768px) and (max-width: 992px)
 {
@@ -26,6 +32,8 @@ margin-bottom: 2%;
 
 }
 /*User Profile*/
+
+
 .user-displayed-photos {
   max-width: 100%;
   margin-bottom: 8%;
@@ -82,7 +90,7 @@ margin-bottom: 2%;
 div.photo-block {
   margin: auto;
   text-align: center;
-  border: 1px solid gray;
+
 }
 
 /*This is for the navbar*/

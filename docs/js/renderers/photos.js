@@ -16,7 +16,7 @@ const photoRenderer = {
                     <h5 class= " card-title text-center ">${photo.title}
                     </h5 >
                     <p class= " text-center ">${photo.description}</p>
-                    <p class= " text-left">Published by: <img src="/images/user.png"> <a href= "user_profile.html" class="user-name"></a></p >
+                    <p class= " text-left">Published by: <img src="/images/user.png"> <a href= "user_profile.html?userId=${photo.userId}" class="user-name"></a></p >
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
                     <p class= " text-left "><img src="/images/star.png"> ${photo.averageStars} stars average</p >
                     <p class= " text-left "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
@@ -34,7 +34,7 @@ const photoRenderer = {
     let html = `<div class= "photo-details">
     <h3 >${photo.title} </h3 >
     <h6 >${photo.description} </h6 >
-    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html " class= "user-name">${photo.username}</a></p >
+    <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html?userId=${photo.userId}" class= "user-name">${photo.username}</a></p >
     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
     <hr >
     <img src= "${photo.url}" class= "img-fluid">
@@ -48,7 +48,8 @@ const photoRenderer = {
 
   asLittleCard: function (photo) {
     let html = `
-    <div class="col-md">
+    <div class= " col-md">
+
     <div class="card">
     <a href="photo_detail.html?photoId=${photo.photoId}">
         <img
@@ -56,16 +57,15 @@ const photoRenderer = {
           alt="photo1"
           class="user-displayed-photo"
         />
-      </a>
+    </a>
       <h4 class="text-center">${photo.title}</h4>
       <div class="card-footer">
         <small class="text-muted">${photo.visibility} photo</small>
       </div>
     </div>
-  </div>`;
+    </div>`;
 
     let card = parseHTML(html);
-    loadUsernameCard(card, photo.userId);
     return card;
   },
 };

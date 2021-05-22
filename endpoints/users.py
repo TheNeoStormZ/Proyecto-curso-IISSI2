@@ -13,7 +13,7 @@ def get_by_id():
 @endpoint(
    route="/users/$userId",
     method="PUT",
-    sql="UPDATE Users SET firstName = $firstName, lastName = $lastName, secondSurname = $secondSurname, email = $email, username = $username, avatarUrl=avatarUrl WHERE userId = $userId",
+    sql="UPDATE Users SET firstName = $firstName, lastName = $lastName, secondSurname = $secondSurname, email = $email, username = $username, avatarUrl=$avatarUrl WHERE userId = $userId",
     description="Updates an existing user",
     auth_required=True,
 )

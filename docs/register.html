@@ -32,22 +32,14 @@
       <div id="errors"></div>
       <form  id="register-form">
         <div class="row">
-          <div class="mx-auto">
-            <label
-              for="profiepic"
-              class="btn btn-outline-primary my-2 my-sm-0"
-              type="submit"
-            >
-              Upload photo
-              <i class="fa fa-upload" aria-hidden="true"></i>
-              <input
-                type="file"
-                id="profiepic"
-                name="profilepic"
-                accept="image/gif, image/jpeg, image/png"
-                hidden
-              />
-            </label>
+          <div class="col-md">
+            <label for="firstname-input">Profile picture: </label>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+               </div>
+                  <input name="avatarUrl" class="form-control" placeholder="Photo url" type="text" value="images/user1.svg">
+              </div>
           </div>
         </div>
         <div class="row">

@@ -39,27 +39,23 @@
         <form action="" id="user-edit">
           <div class="row text-left">
             <div class="col-md" id="user-info-column">
-              <div class="form-group">
-                <img
+              <label for="avatarUrl">Profile picture: </label>
+              <label
+                ><img
                   src="images/user1.svg"
                   alt="User photo"
                   class="user-photo"
                   id="user-photo"
-                />
-                <label
-                  for="profiepic"
-                  class="btn btn-outline-primary my-2 my-sm-0"
-                  type="submit"
-                >
-                  Upload photo
-                  <i class="fa fa-upload" aria-hidden="true"></i>
-                </label>
+              /></label>
+              <div class="form-group input-group">
+                <div class="input-group-prepend"></div>
                 <input
-                  type="file"
-                  id="profiepic"
-                  name="profilepic"
-                  accept="image/gif, image/jpeg, image/png"
-                  hidden
+                  name="avatarUrl"
+                  id="avatarUrl"
+                  class="form-control"
+                  placeholder="Photo url"
+                  type="text"
+                  value="images/user1.svg"
                 />
               </div>
             </div>
