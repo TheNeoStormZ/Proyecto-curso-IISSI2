@@ -9,7 +9,9 @@ CREATE TABLE Users (
 	email VARCHAR(128) NOT NULL,
 	username VARCHAR(64) UNIQUE NOT NULL,
 	password VARCHAR(256) NOT NULL,
-	avatarUrl VARCHAR(512)
+	avatarUrl VARCHAR(512),
+
+	CONSTRAINT UniqueAcoount UNIQUE(username,email)
 );
 
 CREATE TABLE Photos (
@@ -29,9 +31,10 @@ CREATE TABLE Ratings (
 	photoId INT NOT NULL,
 	userId INT NOT NULL,
 	ratingValue INT NOT NULL,
-	FOREIGN KEY (userId) REFERENCES Users (userId),
-	FOREIGN KEY (photoId) REFERENCES Photos (photoId),
-	CONSTRAINT ValidRate CHECK (ratingValue BETWEEN 1 AND 5)
+	FOREIGN KEY (userId) REFERENCES Users (userId) ON DELETE CASCADE,
+	FOREIGN KEY (photoId) REFERENCES Photos (photoId) ON DELETE CASCADE,
+	CONSTRAINT ValidRate CHECK (ratingValue BETWEEN 1 AND 5),
+	CONSTRAINT UniqueRating UNIQUE(photoId,userId)
 );
 
 -- Create the rest of your tables...

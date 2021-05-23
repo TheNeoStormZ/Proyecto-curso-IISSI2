@@ -22,6 +22,16 @@ def get_all():
 ###############################################################################
 
 @endpoint(
+    route="/ratings/avg/$photoId",
+    method="GET",
+    sql="SELECT AVG(ratingValue)AS average FROM ratings WHERE photoId = $photoId"
+)
+def get_all():
+    pass
+
+###############################################################################
+
+@endpoint(
     route="/ratings/$photoId/$userId",
     method="GET",
     sql="SELECT * FROM ratings WHERE photoId = $photoId AND userId = $userId"
@@ -43,12 +53,12 @@ def create(photoId, userId,ratingValue):
 ###############################################################################
 
 @endpoint(
-    route="/ratings",
+    route="/ratings/$ratingId",
     method="PUT",
-    sql="UPDATE ratings SET ratingValue = $ratingValue WHERE userId= $userId AND photoId = $photoId",
+    sql="UPDATE ratings SET ratingValue = $ratingValue WHERE ratingId = $ratingId",
     auth_required=True,
 )
-def create(photoId, userId, ratingValue):
+def create(ratingValue):
     pass
 
 ###############################################################################

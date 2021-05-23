@@ -1,0 +1,18 @@
+-- SECURITY MEASURES ---
+
+
+
+-- RN-C01
+DELIMITER //
+CREATE OR REPLACE TRIGGER noMorePhotos
+	BEFORE INSERT ON photos
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM photos WHERE userId=NEW.userId;
+	
+	IF cuenta >0 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Maximo de fotos alcanzado';
+	END IF;
+	END//
+DELIMITER ;

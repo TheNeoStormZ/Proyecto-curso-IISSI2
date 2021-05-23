@@ -29,6 +29,15 @@ const ratingsAPI = {
         });
       },
 
+      getByPhotoMean: function (photoId) {
+        return new Promise(function (resolve, reject) {
+          axios
+            .get(`${BASE_URL}/ratings/avg/${photoId}`, requestOptions)
+            .then((response) => resolve(response.data))
+            .catch((error) => reject(error.response.data.message));
+        });
+      },
+
       create: function (formData) {
         return new Promise(function (resolve, reject) {
           axios
@@ -37,6 +46,16 @@ const ratingsAPI = {
             .catch((error) => reject(error.response.data.message));
         });
       },
+
+      update: function (ratingId, formData) {
+        return new Promise(function (resolve, reject) {
+          axios
+            .put(`${BASE_URL}/ratings/${ratingId}`, formData, requestOptions)
+            .then((response) => resolve(response.data))
+            .catch((error) => reject(error.response.data.message));
+        });
+      },
+      
 };
 
 export { ratingsAPI };

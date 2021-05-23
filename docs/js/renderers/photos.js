@@ -21,7 +21,7 @@ const photoRenderer = {
                     <p class= " text-left">Published by: <img src="/images/user.png"> <a href= "user_profile.html?userId=${photo.userId}" class="user-name"></a></p >
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
                     <p class= " text-left " id="rating"><img src="/images/star.png"> <a class="rating"></a> stars average</p >
-                    <p class= " text-left "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
+                    <p class= " text-left "><img src="/images/dialog.png"> ${photo.comments} comments</p>
                     </div >
                     </div >
                     </div>
@@ -42,7 +42,7 @@ const photoRenderer = {
     <hr >
     <img src= "${photo.url}" class= "img-fluid">
     <p class= " text-right "><img src="/images/star.png"> <a class="rating"></a> stars average</p >
-    <p class= " text-right "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
+    <p class= " text-right "><img src="/images/dialog.png"> ${photo.comments} comments</p>
     </div >`;
     let card = parseHTML(html);
     loadUsernameCard(card, photo.userId);

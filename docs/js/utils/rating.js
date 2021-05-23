@@ -3,7 +3,8 @@ import { ratingsAPI } from "/js/api/ratings.js";
 
 const ratingUTILS = {
 
-getMeanRate: function (photoId)  {
+//OLD LOCAL VERSION
+getMeanRatev1: function (photoId)  {
   let maxSum = 0;
   let mean = 0;
   return ratingsAPI.getByPhoto(photoId).then((ratings) => {
@@ -18,7 +19,19 @@ getMeanRate: function (photoId)  {
     return 0;
   });
 },
-}
+
+//NEW SERVER-SIDE VERSION
+getMeanRate: function (photoId)  {
+  return ratingsAPI.getByPhotoMean(photoId).then((mean) => {
+    if (mean[0].average === null){
+      return 0;
+    }
+    return mean[0].average;
+  }).catch((error) =>  {
+    return 0;
+  });
+},
+};
 
 export {ratingUTILS};
 
