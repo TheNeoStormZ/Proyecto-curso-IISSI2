@@ -3,6 +3,7 @@
 import { parseHTML } from "/js/utils/parseHTML.js";
 import { usersAPI } from "/js/api/users.js";
 
+import { ratingUTILS } from "/js/utils/rating.js"
 
 const photoRenderer = {
   asCard: function (photo) {
@@ -19,7 +20,7 @@ const photoRenderer = {
                     <p class= " text-center ">${photo.description}</p>
                     <p class= " text-left">Published by: <img src="/images/user.png"> <a href= "user_profile.html?userId=${photo.userId}" class="user-name"></a></p >
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
-                    <p class= " text-left "><img src="/images/star.png"> ${photo.averageStars} stars average</p >
+                    <p class= " text-left " id="rating"><img src="/images/star.png"> <a class="rating"></a> stars average</p >
                     <p class= " text-left "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
                     </div >
                     </div >
@@ -29,9 +30,10 @@ const photoRenderer = {
 
     let card = parseHTML(html);
     loadUsernameCard(card, photo.userId);
+    loadRating(card, photo.photoId);
     return card;
   },
-  asDetails: function (photo,rating) {
+  asDetails: function (photo) {
     let html = `<div class= "photo-details">
     <h3 >${photo.title} </h3 >
     <h6 >${photo.description} </h6 >
@@ -39,11 +41,12 @@ const photoRenderer = {
     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
     <hr >
     <img src= "${photo.url}" class= "img-fluid">
-    <p class= " text-right "><img src="/images/star.png"> ${rating} stars average</p >
+    <p class= " text-right "><img src="/images/star.png"> <a class="rating"></a> stars average</p >
     <p class= " text-right "><img src="/images/dialog.png"> ${photo.likes} likes and ${photo.comments} comments</p>
     </div >`;
     let card = parseHTML(html);
     loadUsernameCard(card, photo.userId);
+    loadRating(card, photo.photoId);
     return card;
   },
 
@@ -77,6 +80,13 @@ function loadUsernameCard(card, userId) {
     let p = card.querySelector("a.user-name");
     p.textContent = "@" + username;
   });
+}
+
+function loadRating(card, photoId) {
+  ratingUTILS.getMeanRate(photoId).then((rating) => {
+    let p = card.querySelector("a.rating");
+    p.textContent = rating;
+  })
 }
 
 export { photoRenderer };

@@ -34,10 +34,10 @@ def get_all():
 @endpoint(
     route="/ratings",
     method="POST",
-    sql="INSERT INTO ratings (`photoId`, `userId`, `rating`) VALUES ($photoId, $userId, $rating)",
+    sql="INSERT INTO ratings (`photoId`, `userId`, `ratingValue`) VALUES ($photoId, $userId, $ratingValue)",
     auth_required=True,
 )
-def create(photoId, userId,rating):
+def create(photoId, userId,ratingValue):
     pass
 
 ###############################################################################
@@ -45,10 +45,10 @@ def create(photoId, userId,rating):
 @endpoint(
     route="/ratings",
     method="PUT",
-    sql="UPDATE ratings SET rating = $rating WHERE userId= $userId AND photoId = $photoId",
+    sql="UPDATE ratings SET ratingValue = $ratingValue WHERE userId= $userId AND photoId = $photoId",
     auth_required=True,
 )
-def create(photoId, userId, rating):
+def create(photoId, userId, ratingValue):
     pass
 
 ###############################################################################

@@ -28,10 +28,10 @@ CREATE TABLE Ratings (
 	ratingId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	photoId INT NOT NULL,
 	userId INT NOT NULL,
-	rating INT NOT NULL,
+	ratingValue INT NOT NULL,
 	FOREIGN KEY (userId) REFERENCES Users (userId),
 	FOREIGN KEY (photoId) REFERENCES Photos (photoId),
-	CONSTRAINT ValidRate CHECK (rating BETWEEN 1 AND 5)
+	CONSTRAINT ValidRate CHECK (ratingValue BETWEEN 1 AND 5)
 );
 
 -- Create the rest of your tables...

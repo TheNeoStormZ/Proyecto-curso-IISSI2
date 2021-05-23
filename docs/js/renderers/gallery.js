@@ -4,6 +4,9 @@ import { parseHTML } from "/js/utils/parseHTML.js";
 
 import { photoRenderer } from "/js/renderers/photos.js";
 
+import { ratingUTILS } from "/js/utils/rating.js"
+
+
 const galleryRenderer = {
   asCardGallery: function (photos) {
     let galleryContainer = parseHTML('<div class= "photo-gallery"> </div >');

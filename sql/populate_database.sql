@@ -1,7 +1,8 @@
 INSERT INTO Users
 VALUES
 	(1, 'John', 'Doe',null, 'john.doe@gallery.com', 'john', 'pbkdf2:sha256:150000$KKgd0xN5$d778b27800d8b89e001843285475a0da3f6f6c664ec8e8a9590ed1c49603b194', '/images/default_profile.png'),
-	(2, 'Jane', 'Smith',null, 'jane.smith@gallery.com', 'jane', 'pbkdf2:sha256:150000$v4wgnaXC$b87f5daf437119c21ec712462f4b193b6fada27f485e36502c5cf4553a01f640', '/images/default_profile.png');
+	(2, 'Jane', 'Smith',null, 'jane.smith@gallery.com', 'jane', 'pbkdf2:sha256:150000$v4wgnaXC$b87f5daf437119c21ec712462f4b193b6fada27f485e36502c5cf4553a01f640', '/images/default_profile.png'),
+	(3, 'Laura', 'Acosta', '', 'lacosta@gmail.com', 'lacosta', 'pbkdf2:sha256:150000$FCWbm0zS$be6a7d2f6d0ffacaee15f62172579c58aeef0d3bde9534ca24a8de2c9d6c8d39', 'images/user1.svg');
 -- Password = username
 
 INSERT INTO Photos
@@ -12,3 +13,9 @@ VALUES
 	(4, 'Seville', 'The beautiful city of Seville, Spain', '2016-04-02 09:16:58', 'https://urbansevilla.es/wp-content/uploads/2019/03/urban-sevilla-foto-ciudad.jpg', 'Public', 2);
 
 -- Add some more data for your other tables...
+
+INSERT INTO `ratings` (`ratingId`, `photoId`, `userId`, `ratingValue`) VALUES
+	(1, 4, 1, 5),
+	(2, 3, 2, 2),
+	(3, 4, 2, 5),
+	(4, 3, 3, 3);

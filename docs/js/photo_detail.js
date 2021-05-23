@@ -4,44 +4,41 @@ import { photoRenderer } from "/js/renderers/photos.js";
 import { sessionManager } from "/js/utils/session.js";
 import { messageRenderer } from "/js/renderers/messages.js";
 import { ratingsAPI } from "/js/api/ratings.js";
+import { ratingUTILS } from "/js/utils/rating.js"
 
 let urlParams = new URLSearchParams(window.location.search);
 let photoId = urlParams.get("photoId");
 let photoContainer = document.querySelector("#photo-details-column");
 let userId;
-let mean;
+let myUserId = sessionManager.getLoggedId();
+let ratingInput = document.getElementById("rating-input");
 
 function main() {
-   //getId();
- 
+  hideActionsColumn();
+  rednderPhoto();
   let editBtn = document.querySelector("#button-edit");
   editBtn.onclick = handleEdit;
-  getMeanRate();
-  rednderPhoto();
+  
 }
 
-function getMeanRate(){
-  let maxSum = 0;
-  ratingsAPI.getByPhoto(photoId)
-    .then((ratings) => {
-      for (var i in ratings){
-        console.log(ratings[i].rating);
-        maxSum += ratings[i].rating;
-      }
-      console.log("sum: " + maxSum);  
-      mean = maxSum/ratings.length;
-    })
+function loadRating() {
+  ratingsAPI.getByPhotoUser(photoId,myUserId).then((rating) => {
+    console.log(rating);
+    ratingInput.value = rating[0].value;
+  }).catch ((error) => {
+    ratingInput.value = 1;
+  })
 }
 
 function rednderPhoto(){
-  console.log(mean);
+  
   photosAPI
     .getById(photoId)
     .then((photos) => {
-      let photoDetails = photoRenderer.asDetails(photos[0],mean);
+      let photoDetails = photoRenderer.asDetails(photos[0]);
       userId = photos[0].userId;
+      loadRating();
       photoContainer.appendChild(photoDetails);
-      hideActionsColumn();
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
 }
@@ -50,17 +47,6 @@ function handleEdit(event) {
   window.location.href = "upload_picture.html?photoId=" + photoId;
   return false; //Forzamos a que se evalue antes
 }
-/*
-async function getId() {
-  photosAPI
-    .getById(photoId)
-    .then((photos) => {
-      userId = photos[0].userId;
-      console.log("Done! User id: " + userId);
-    })
-    .catch((error) => messageRenderer.showErrorMessage(error));
-}*/
-
 function hideActionsColumn() {
   let actions_col = document.getElementById("actions-col");
   let add_comment = document.getElementById("add-comment");
