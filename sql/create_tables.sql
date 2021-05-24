@@ -37,4 +37,14 @@ CREATE TABLE Ratings (
 	CONSTRAINT UniqueRating UNIQUE(photoId,userId)
 );
 
+CREATE TABLE Comments (
+	commentId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	photoId INT NOT NULL,
+	userId INT NOT NULL,
+	commentText VARCHAR(512),
+	date DATETIME DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (userId) REFERENCES Users (userId) ON DELETE CASCADE,
+	FOREIGN KEY (photoId) REFERENCES Photos (photoId)
+);
+
 -- Create the rest of your tables...

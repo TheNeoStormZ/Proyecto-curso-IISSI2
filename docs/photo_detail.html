@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
     <script src="js/photo_detail.js" type="module"></script>
-    <script  src="js/header.js" type="module"></script>
+    <script src="js/header.js" type="module"></script>
     <title>Photo Details</title>
 
     <meta
@@ -37,14 +37,20 @@
         <div class="col-md-3" id="actions-col">
           <div class="form-group">
             <a href="edit_picture.html"
-              ><button class="btn btn-primary" id="button-edit">Edit photo</button></a
+              ><button class="btn btn-primary" id="button-edit">
+                Edit photo
+              </button></a
             >
           </div>
-          <hr>
-          <form  id="rating-form">
+          <hr />
+          <form id="rating-form">
             <div class="form-group">
               <label for="rating-input">Rate this photo: </label
-              ><select id="rating-input" name="ratingValue" class="form-control">
+              ><select
+                id="rating-input"
+                name="ratingValue"
+                class="form-control"
+              >
                 <option value="1">*</option>
                 <option value="2">**</option>
                 <option value="3">***</option>
@@ -56,7 +62,7 @@
               <button class="btn btn-success">Rate</button>
             </div>
           </form>
-          <hr>
+          <hr />
         </div>
       </div>
       <div class="row text-left">
@@ -65,138 +71,29 @@
         </div>
       </div>
       <div class="row text-left">
-        <div class="col-md">
+        <div class="col-md" id="comments-block">
           <div id="add-comment">
-          <form action="">
-            <div class="form-group">
-              <label for="new_comment"><h4>Add a comment:</h4></label>
-              <textarea
-                class="form-control"
-                rows="3"
-                cols="60"
-                id="new_comment"
-                name="new_comment"
-                placeholder="New comment"
-                required
-              ></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">
-                Publish <i class="fa fa-plus" aria-hidden="true"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-          <hr />
-          <div class="comments-block">
-              <div class="card mb-3">
-                <div
-                  class="card-header d-flex justify-content-between align-items-center"
-                >
-                  <strong strong class="mr-1">
-                    Published by: <img src="/images/user.png" />
-                    <a href="user_profile.html " class="user-link">lightbringer</a>
-                    the 15/08/2020
-                  </strong>
-                  <div>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-primary"
-                      title="Respond"
-                    >
-                      <i class="fa fa-share" aria-hidden="true"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-danger"
-                      title="Delete"
-                    >
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <blockquote class="blockquote">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer posuere erat a ante.
-                    </p>
-                  </blockquote>
-                </div>
+            <form action="" id="comment-form">
+              <div class="form-group">
+                <label for="commentText"><h4>Add a comment:</h4></label>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  cols="60"
+                  id="commentText"
+                  name="commentText"
+                  placeholder="New comment"
+                  required
+                ></textarea>
               </div>
-
-              <div class="card mb-3">
-                <div
-                  class="card-header d-flex justify-content-between align-items-center"
-                >
-                  <strong strong class="mr-1">
-                    Published by: <img src="/images/user.png" />
-                    <a href="user_1.html " class="user-link">lacosta</a>
-                    the 15/08/2020
-                  </strong>
-                  <div>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-primary"
-                      title="Respond"
-                    >
-                      <i class="fa fa-share" aria-hidden="true"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-warning"
-                      title="Report"
-                    >
-                      <i class="fa fa-flag" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <blockquote class="blockquote">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer posuere erat a ante.
-                    </p>
-                  </blockquote>
-                </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                  Publish <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
               </div>
-
-              <div class="card mb-3">
-                <div
-                  class="card-header d-flex justify-content-between align-items-center"
-                >
-                  <strong class="mr-1">
-                    Published by: <img src="/images/user.png" />
-                    <a href="user_1.html " class="user-link">lacosta</a>
-                    the 15/08/2020
-                  </strong>
-                  <div>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-primary"
-                      title="Respond"
-                    >
-                      <i class="fa fa-share" aria-hidden="true"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-sm btn-warning"
-                      title="Report"
-                    >
-                      <i class="fa fa-flag" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <blockquote class="blockquote">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Integer posuere erat a ante.
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
+            </form>
           </div>
+          <hr />
         </div>
       </div>
     </div>

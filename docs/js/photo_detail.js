@@ -4,24 +4,53 @@ import { photoRenderer } from "/js/renderers/photos.js";
 import { sessionManager } from "/js/utils/session.js";
 import { messageRenderer } from "/js/renderers/messages.js";
 import { ratingsAPI } from "/js/api/ratings.js";
-import { ratingUTILS } from "/js/utils/rating.js"
+import { commentsAPI } from "/js/api/comments.js";
+import { profileRenderer } from "/js/renderers/comments.js";
 
 let urlParams = new URLSearchParams(window.location.search);
+//RENDER FOTO
 let photoId = urlParams.get("photoId");
 let photoContainer = document.querySelector("#photo-details-column");
 let userId;
 let myUserId = sessionManager.getLoggedId();
+//Valoracion
 let ratingInput = document.getElementById("rating-input");
 let globalRatingId;
+// Comentarios
+let commentSection = document.getElementById("comments-block");
+let commentForm = document.getElementById("comment-form");
 
 function main() {
   rednderPhoto();
   loadRating();
+  loadComments();
   let editBtn = document.querySelector("#button-edit");
   let rateForm = document.getElementById("rating-form");
   editBtn.onclick = handleEdit;
   rateForm.onsubmit = handleRate;
+  commentForm.onsubmit = handleComment;
+ 
   
+}
+
+function handleComment (){
+  event.preventDefault();
+  let form = event.target;
+  let formData = new FormData(form);
+  formData.append("userId", myUserId);
+  commentsAPI.create(formData,photoId)
+  .then((data) => (window.location.href = window.location.href))
+  .catch((error) => messageRenderer.showErrorMessage(error));
+}
+
+function loadComments() {
+  commentsAPI.getById(photoId).then((comments) => {
+    let cards = profileRenderer.renderer(comments);
+    console.log(cards);
+    commentSection.appendChild(cards);
+  }).catch ((error) => {
+    messageRenderer.showErrorMessage(error);
+  })
 }
 
 function loadRating() {
