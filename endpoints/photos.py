@@ -3,7 +3,7 @@ from silence.decorators import endpoint
 @endpoint(
     route="/photos",
     method="GET",
-    sql="SELECT * FROM Photos ORDER BY date DESC"
+    sql="SELECT * FROM photos p  WHERE p.visibility='Public' ORDER BY date DESC"
 )
 def get_all():
     pass
@@ -33,9 +33,19 @@ def get_by_id():
 @endpoint(
     route="/users/$userId/photos",
     method="GET",
+    sql="SELECT * FROM Photos  p  WHERE p.visibility='Public' AND userId = $userId  ORDER BY date DESC"
+)
+def get_by_user_id():
+    pass
+
+###############################################################################
+
+@endpoint(
+    route="/users/$userId/myphotos",
+    method="GET",
     sql="SELECT * FROM Photos WHERE userId = $userId  ORDER BY date DESC"
 )
-def get_by_id():
+def get_by_user_id_all():
     pass
 
 ###############################################################################

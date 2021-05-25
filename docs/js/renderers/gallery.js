@@ -4,6 +4,8 @@ import { parseHTML } from "/js/utils/parseHTML.js";
 
 import { photoRenderer } from "/js/renderers/photos.js";
 
+import { sessionManager } from "/js/utils/session.js";
+
 import { ratingUTILS } from "/js/utils/rating.js"
 
 

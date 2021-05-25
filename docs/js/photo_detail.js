@@ -29,7 +29,7 @@ function main() {
   editBtn.onclick = handleEdit;
   rateForm.onsubmit = handleRate;
   commentForm.onsubmit = handleComment;
- 
+  
   
 }
 
@@ -53,6 +53,7 @@ function loadComments() {
   })
 }
 
+
 function loadRating() {
   ratingsAPI.getByPhotoUser(photoId,myUserId).then((rating) => {
     console.log(rating);
@@ -64,8 +65,8 @@ function loadRating() {
   })
 }
 
+
 function rednderPhoto(){
-  
   photosAPI
     .getById(photoId)
     .then((photos) => {

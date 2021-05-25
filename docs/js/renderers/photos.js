@@ -2,7 +2,7 @@
 
 import { parseHTML } from "/js/utils/parseHTML.js";
 import { usersAPI } from "/js/api/users.js";
-
+import { commentsAPI } from "/js/api/comments.js";
 import { ratingUTILS } from "/js/utils/rating.js"
 
 const photoRenderer = {
@@ -21,7 +21,7 @@ const photoRenderer = {
                     <p class= " text-left">Published by: <img src="/images/user.png"> <a href= "user_profile.html?userId=${photo.userId}" class="user-name"></a></p >
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
                     <p class= " text-left " id="rating"><img src="/images/star.png"> <a class="rating"></a> stars average</p >
-                    <p class= " text-left "><img src="/images/dialog.png"> ${photo.comments} comments</p>
+                    <p class= " text-left "><img src="/images/dialog.png"> <a class="count"></a> comments</p>
                     </div >
                     </div >
                     </div>
@@ -30,7 +30,9 @@ const photoRenderer = {
 
     let card = parseHTML(html);
     loadUsernameCard(card, photo.userId);
+    loadCommentsCountCard(card, photo.photoId);
     loadRating(card, photo.photoId);
+    
     return card;
   },
   asDetails: function (photo) {
@@ -42,11 +44,12 @@ const photoRenderer = {
     <hr >
     <img src= "${photo.url}" class= "img-fluid">
     <p class= " text-right "><img src="/images/star.png"> <a class="rating"></a> stars average</p >
-    <p class= " text-right "><img src="/images/dialog.png"> ${photo.comments} comments</p>
+    <p class= " text-right "><img src="/images/dialog.png"> <a class="count"></a> comments</p>
     </div >`;
     let card = parseHTML(html);
     loadUsernameCard(card, photo.userId);
     loadRating(card, photo.photoId);
+    loadCommentsCountCard(card, photo.photoId);
     return card;
   },
 
@@ -87,6 +90,14 @@ function loadRating(card, photoId) {
     let p = card.querySelector("a.rating");
     p.textContent = rating;
   })
+}
+
+function loadCommentsCountCard(card, photoId) {
+  commentsAPI.getByIdCount(photoId).then((count) => {
+    console.log(count[0].countValue);
+   let p = card.querySelector("a.count");
+   p.textContent = count[0].countValue;
+  });
 }
 
 export { photoRenderer };

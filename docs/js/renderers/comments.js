@@ -16,6 +16,11 @@ const profileRenderer = {
     },
 
     show: function (comment) {
+      let myUserId = sessionManager.getLoggedId();
+      let style = "inline";
+     /* if (!(comment.userId === myUserId)){
+        style = "none";
+      }*/
         let html =`              
         <div class="card mb-3">
         <div
@@ -29,15 +34,10 @@ const profileRenderer = {
           <div>
             <button
               type="button"
-              class="btn btn-sm btn-primary"
-              title="Respond"
-            >
-              <i class="fa fa-share" aria-hidden="true"></i>
-            </button>
-            <button
-              type="button"
               class="btn btn-sm btn-danger"
               title="Delete"
+              id="delete-btn"
+              style="display: none"
             >
             <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
@@ -66,5 +66,6 @@ function loadUsernameCard(card, userId) {
       p.textContent = "@" + username;
     });
   }
+
 
 export {profileRenderer};

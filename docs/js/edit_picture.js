@@ -5,12 +5,15 @@ import { messageRenderer } from "/js/renderers/messages.js";
 
 let urlParams = new URLSearchParams(window.location.search);
 let photoId = urlParams.get("photoId");
+let urlInput = document.getElementById("input-url");
 let currentPhoto = null;
 
 function main() {
   if (photoId !== null) {
     loadCurrentPhoto();
   }
+
+  urlInput.addEventListener('change', UpdatePhotoView);
 
   let registerForm = document.getElementById("form-photo-upload");
   let deleteBtn = document.querySelector("#button-delete");
@@ -31,12 +34,12 @@ function main() {
         .catch((error) => messageRenderer.showErrorMessage(error));
     } else {
       //  Updating  an  existing  photo
-      formData.append("userId", currentPhoto.userId);
+      formData.append("userId", sessionManager.getLoggedId());
       formData.append("date", currentPhoto.date);
       photosAPI
         .update(photoId, formData)
         .then((data) => (window.location.href = "index.html"))
-        .catch((error) => messageRenderer.showErrorAsAlert(error));
+        .catch((error) => messageRenderer.showErrorMessage(error));
     }
   }
 function handleDelete(event) {
@@ -49,7 +52,6 @@ function handleDelete(event) {
   }
 }
 function loadCurrentPhoto() {
-  let urlInput = document.getElementById("input-url");
   let titleInput = document.getElementById("input-title");
   let descriptionInput = document.getElementById("input-description");
   let visibilityInput = document.getElementById("input-visibility");
@@ -66,6 +68,11 @@ function loadCurrentPhoto() {
       visibilityInput.value = currentPhoto.visibility;
     })
     .catch((error) => messageRenderer.showErrorMessage(error));
+}
+
+function UpdatePhotoView(){
+  console.log("Hello guys");
+  document.getElementById('myImage').src=urlInput.value;
 }
 
 

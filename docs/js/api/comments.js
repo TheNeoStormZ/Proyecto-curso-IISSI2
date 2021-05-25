@@ -11,6 +11,15 @@ const commentsAPI = {
     });
   },
 
+  getByIdCount: function (photoId) {
+    return new Promise(function (resolve, reject) {
+      axios
+        .get(`${BASE_URL}/photos/${photoId}/comments/count`, requestOptions)
+        .then((response) => resolve(response.data))
+        .catch((error) => reject(error.response.data.message));
+    });
+  },
+
     create: function (formData,photoId) {
       return new Promise(function (resolve, reject) {
         axios

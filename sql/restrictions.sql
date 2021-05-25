@@ -1,4 +1,17 @@
 -- SECURITY MEASURES ---
+ -- PROTECT PHOTOS FROM VANDALISM
+DELIMITER //
+CREATE OR REPLACE TRIGGER myPhotoNotYours
+	BEFORE UPDATE ON photos
+	FOR EACH ROW
+	BEGIN
+	DECLARE myUserId INT;
+	SELECT userId INTO myUserId FROM comments WHERE photoId=OLD.photoId;
+	IF OLD.userId != NEW.userId  THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = '¡La foto no te pertenece!';
+	END IF;
+	END//
+DELIMITER ;
 
 
 
@@ -13,6 +26,21 @@ CREATE OR REPLACE TRIGGER noMorePhotos
 	
 	IF cuenta >0 THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Maximo de fotos alcanzado';
+	END IF;
+	END//
+DELIMITER ;
+
+-- RN-B05
+DELIMITER //
+CREATE OR REPLACE TRIGGER dontLoseComments
+	BEFORE DELETE ON photos
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM comments WHERE photoId=OLD.photoId;
+	
+	IF cuenta >0 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La foto no se puede borrar porque tiene comentarios';
 	END IF;
 	END//
 DELIMITER ;

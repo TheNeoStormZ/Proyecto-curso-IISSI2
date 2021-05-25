@@ -47,4 +47,19 @@ CREATE TABLE Comments (
 	FOREIGN KEY (photoId) REFERENCES Photos (photoId)
 );
 
+CREATE TABLE Category (
+	categoryId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	name INT NOT NULL
+);
+
+CREATE TABLE PhotoCategories (
+	PhotoCategories INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	categoryId INT NOT NULL,
+	userId INT NOT NULL,
+
+	FOREIGN KEY (userId) REFERENCES Users (userId) ON DELETE CASCADE,
+	FOREIGN KEY (categoryId) REFERENCES Category (categoryId) ON DELETE CASCADE
+
+);
+
 -- Create the rest of your tables...

@@ -12,6 +12,7 @@ let urlParams = new URLSearchParams(window.location.search);
 let chosenUserId = urlParams.get("userId");
 let aboutHeader = document.getElementById("about-header");
 let galleryHeader = document.getElementById("gallery-header");
+let photoContainer = document.getElementById("user-photos");
 
 function main() {
 
@@ -26,7 +27,6 @@ function main() {
     }
 
     let detailsContainer = document.getElementById("user-details");
-    let photoContainer = document.getElementById("user-photos");
   usersAPI
     .getById(userId)
     .then((data) =>  {
@@ -38,22 +38,46 @@ function main() {
        detailsContainer.appendChild(profile);
       })
     .catch((error) => messageRenderer.showErrorMessage(error));
+    if (sessionManager.getLoggedId() === parseInt(chosenUserId) || chosenUserId === null){
+      renderPrivatePhotos();
+    } else {
+      renderPublicPhotos();
+    }
+    
 
-    photosAPI
-    .getByUserId(userId)
-    .then((photos) => {
-      console.log(photos);
-      let gallery = galleryRenderer.asProfile(photos);
-      photoContainer.appendChild(gallery);
-      let photoCount = document.getElementById("user-photos-count");
-      let photoPrivateCount = document.getElementById("user-private-photos");
-      let numPrivate = photos.filter(x => x.visibility==='Private');
-      photoCount.textContent= photos.length + " photos uploaded";
-      photoPrivateCount.textContent = numPrivate.length + " private photos"
-    })
-    .catch((error) => messageRenderer.showErrorMessage(error));
 
     
+}
+
+function renderPublicPhotos(){
+  photosAPI
+  .getByUserId(userId)
+  .then((photos) => {
+    console.log(photos);
+    let gallery = galleryRenderer.asProfile(photos);
+    photoContainer.appendChild(gallery);
+    let photoCount = document.getElementById("user-photos-count");
+    let photoPrivateCount = document.getElementById("user-private-photos");
+    photoCount.textContent= photos.length + " photos uploaded";
+    photoPrivateCount.textContent = 0 + " private photos"
+  })
+  .catch((error) => messageRenderer.showErrorMessage(error));
+}
+
+function renderPrivatePhotos(){
+  photosAPI
+  .getByMyUserId(userId)
+  .then((photos) => {
+    console.log(photos);
+    let gallery = galleryRenderer.asProfile(photos);
+    photoContainer.appendChild(gallery);
+    let photoCount = document.getElementById("user-photos-count");
+    let photoPrivateCount = document.getElementById("user-private-photos");
+    let numPrivate = photos.filter(x => x.visibility==='Private');
+    photoCount.textContent= photos.length + " photos uploaded";
+    photoPrivateCount.textContent = numPrivate.length + " private photos"
+  })
+  .catch((error) => messageRenderer.showErrorMessage(error));
 }
 
 document.addEventListener("DOMContentLoaded", main);

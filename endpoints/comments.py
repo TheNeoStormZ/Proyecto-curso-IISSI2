@@ -9,6 +9,15 @@ def get_all():
     pass
 
 ###############################################################################
+@endpoint(
+    route="/photos/$photoId/comments/count",
+    method="GET",
+    sql="SELECT COUNT(*) AS countValue FROM Comments WHERE photoId = $photoId ORDER BY date ASC"
+)
+def get_count():
+    pass
+
+###############################################################################
 
 @endpoint(
     route="/photos/$photoId/comments/$commentId",
