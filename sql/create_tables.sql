@@ -49,16 +49,22 @@ CREATE TABLE Comments (
 
 CREATE TABLE Category (
 	categoryId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	name INT NOT NULL
+	categoryName VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE PhotoCategories (
 	PhotoCategories INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	categoryId INT NOT NULL,
-	userId INT NOT NULL,
+	photoId INT NOT NULL,
 
-	FOREIGN KEY (userId) REFERENCES Users (userId) ON DELETE CASCADE,
+	FOREIGN KEY (photoId) REFERENCES Photos (photoId) ON DELETE CASCADE,
 	FOREIGN KEY (categoryId) REFERENCES Category (categoryId) ON DELETE CASCADE
+
+);
+
+CREATE TABLE inapropiateWords (
+	inapropiateWordId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	wordValue VARCHAR(20) NOT NULL
 
 );
 

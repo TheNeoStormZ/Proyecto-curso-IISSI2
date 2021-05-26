@@ -1,5 +1,6 @@
 "use  strict";
 import { photosAPI } from "/js/api/photos.js";
+import { categoriesAPI } from "/js/api/categories.js";
 import { sessionManager } from "/js/utils/session.js";
 import { messageRenderer } from "/js/renderers/messages.js";
 
@@ -8,11 +9,16 @@ let photoId = urlParams.get("photoId");
 let urlInput = document.getElementById("input-url");
 let currentPhoto = null;
 
+//Categories
+let CategoriesSelect = document.getElementById("input-phcat");
+
+
+
 function main() {
+  getCategories();
   if (photoId !== null) {
     loadCurrentPhoto();
   }
-
   urlInput.addEventListener('change', UpdatePhotoView);
 
   let registerForm = document.getElementById("form-photo-upload");
@@ -21,8 +27,39 @@ function main() {
   deleteBtn.onclick = handleDelete;
 }
 
+function getCategories(){
+  categoriesAPI
+    .getAll()
+    .then((categories) => {
+     for (let i = 0; i<categories.length;i++){
+     // console.log(categories[i].categoryName);
+      var opt = document.createElement('option');
+      opt.value = categories[i].categoryName;
+      opt.innerHTML = categories[i].categoryName;
+      CategoriesSelect.appendChild(opt);
+     }
+    })
+    .catch((error) => messageRenderer.showErrorMessage(error));
+}
+
+function sendCategroies(){
+  let selectedValues = CategoriesSelect.selectedOptions;
+  for (let i = 0;i<selectedValues.length;i++){
+    let formData = new FormData();
+    console.log(selectedValues[i].label);
+    formData.append('categoryId', parseInt((i+1)));
+    console.log(formData.getAll('categoryId'));
+    //formData.append('photoId',  parseInt(photoId));
+    categoriesAPI
+    .addToPhoto(formData,photoId)
+    .then((data) => (console.log("Success adding the cat to the photo")));
+  }
+  
+}
+
   function handleSubmitPhoto(event) {
     event.preventDefault();
+    sendCategroies();
     let form = event.target;
     let formData = new FormData(form);
     if (currentPhoto === null) {
@@ -71,7 +108,6 @@ function loadCurrentPhoto() {
 }
 
 function UpdatePhotoView(){
-  console.log("Hello guys");
   document.getElementById('myImage').src=urlInput.value;
 }
 

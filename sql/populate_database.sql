@@ -25,3 +25,11 @@ INSERT INTO `ratings` (`ratingId`, `photoId`, `userId`, `ratingValue`) VALUES
 	(7, 5, 2, 3),
 	(8, 5, 1, 3);
 
+	INSERT INTO `inapropiatewords` (`inapropiateWordId`, `wordValue`) VALUES
+	(1, 'shrekphone');
+
+	INSERT INTO `category` (`categoryId`, `categoryName`) VALUES
+	(1, 'Animales'),
+	(2, 'Paisajes'),
+	(3, 'Tecnologia');
+

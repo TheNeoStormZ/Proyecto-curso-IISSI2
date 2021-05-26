@@ -24,8 +24,65 @@ CREATE OR REPLACE TRIGGER noMorePhotos
 	DECLARE cuenta INT;
 	SELECT COUNT(*)  INTO cuenta FROM photos WHERE userId=NEW.userId;
 	
-	IF cuenta >0 THEN
+	IF cuenta >5 THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Maximo de fotos alcanzado';
+	END IF;
+	END//
+DELIMITER ;
+
+-- RN-C02
+
+DELIMITER //
+CREATE OR REPLACE TRIGGER noBadWordsInPhotos
+	BEFORE INSERT ON photos
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM inapropiateWords WHERE NEW.title LIKE inapropiateWords.wordValue OR NEW.description LIKE inapropiateWords.wordValue;
+	IF cuenta >0 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Don`t be rude!';
+	END IF;
+	END//
+DELIMITER ;
+
+DELIMITER //
+CREATE OR REPLACE TRIGGER noBadWordsInPhotosUpdate
+	BEFORE UPDATE ON photos
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM inapropiateWords WHERE NEW.title LIKE inapropiateWords.wordValue OR NEW.description LIKE inapropiateWords.wordValue;
+	IF cuenta >0 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Don`t be rude!';
+	END IF;
+	END//
+DELIMITER ;
+
+ -- RN-B07
+
+DELIMITER //
+CREATE OR REPLACE TRIGGER noBadWordsInComments
+	BEFORE INSERT ON Comments
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM inapropiateWords WHERE NEW.commentText LIKE inapropiateWords.wordValue;
+	IF cuenta >0 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Don`t be rude!';
+	END IF;
+	END//
+DELIMITER ;
+
+
+DELIMITER //
+CREATE OR REPLACE TRIGGER noBadWordsInCommentsUpdate
+	BEFORE UPDATE ON Comments
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM inapropiateWords WHERE NEW.commentText LIKE inapropiateWords.wordValue;
+	IF cuenta >0 THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Don`t be rude!';
 	END IF;
 	END//
 DELIMITER ;
