@@ -13,9 +13,9 @@ def get_all():
 @endpoint(
     route="/categories",
     method="POST",
-    sql="INSERT INTO Category (categoryId, categoryName) VALUES ($categoryId, $categoryName)"
+    sql="INSERT INTO Category (categoryName) VALUES ($categoryName)"
 )
-def get_by_id(categoryId,categoryName):
+def get_by_id(categoryName):
     pass
 
 ###############################################################################
@@ -26,6 +26,25 @@ def get_by_id(categoryId,categoryName):
     sql="INSERT INTO photocategories (categoryId, photoId) VALUES ($categoryId, $photoId)"
 )
 def add_category_photo(categoryId):
-    print(categoryId)
+    pass
+
+###############################################################################
+
+@endpoint(
+    route="/photos/$photoId/categories",
+    method="GET",
+    sql="SELECT * FROM photocategories WHERE photoId = $photoId"
+)
+def add_category_photo():
+   pass
+
+###############################################################################
+@endpoint(
+    route="/photos/$photoId/categories",
+    method="DELETE",
+    sql="DELETE FROM photocategories WHERE photoId = $photoId",
+)
+def add_category_photo():
+   pass
 
 ###############################################################################

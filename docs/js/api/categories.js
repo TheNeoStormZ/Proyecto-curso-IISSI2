@@ -11,6 +11,24 @@ const categoriesAPI = {
     });
   },
 
+  getByPhoto: function (photoId) {
+    return new Promise(function (resolve, reject) {
+      axios
+        .get(`${BASE_URL}/photos/${photoId}/categories`, requestOptions)
+        .then((response) => resolve(response.data))
+        .catch((error) => reject(error.response.data.message));
+    });
+  },
+
+  purgePhoto: function (photoId) {
+    return new Promise(function (resolve, reject) {
+      axios
+        .delete(`${BASE_URL}/photos/${photoId}/categories`, requestOptions)
+        .then((response) => resolve(response.data))
+        .catch((error) => reject(error.response.data.message));
+    });
+  },
+
   
   create: function (formData) {
     return new Promise(function (resolve, reject) {
