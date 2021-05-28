@@ -18,6 +18,16 @@ const photosAPI = {
         .catch((error) => reject(error.response.data.message));
     });
   },
+
+  getByCat: function (categoryName) {
+    return new Promise(function (resolve, reject) {
+      axios
+        .get(`${BASE_URL}/categories/${categoryName}/photos`, requestOptions)
+        .then((response) => resolve(response.data))
+        .catch((error) => reject(error.response.data.message));
+    });
+  },
+
   getById: function (photoId) {
     return new Promise(function (resolve, reject) {
       axios

@@ -25,11 +25,29 @@ INSERT INTO `ratings` (`ratingId`, `photoId`, `userId`, `ratingValue`) VALUES
 	(7, 5, 2, 3),
 	(8, 5, 1, 3);
 
-	INSERT INTO `inapropiatewords` (`inapropiateWordId`, `wordValue`) VALUES
-	(1, 'shrekphone');
+	INSERT INTO `inapropiatewords` (`wordValue`) VALUES
+	('%cabron%'),
+	('%cabrona%'),
+	('%estupido%'),
+	('%estupida%'),
+	('%soplapollas%'),
+	('%escoria%'),
+	('%comemierdas%'),
+	('%zorro%'),
+	('%zorra%'),
+	('%gilipollas%'),
+	('jódete'),
+	('imbecil');
+
 
 	INSERT INTO `category` (`categoryId`, `categoryName`) VALUES
 	(1, 'Animales'),
 	(2, 'Paisajes'),
 	(3, 'Tecnologia');
+
+	
+	INSERT INTO `photocategories` (`PhotoCategories`, `categoryId`, `photoId`) VALUES
+	(1, 2, 5),
+	(3, 3, 5);
+
 

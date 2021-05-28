@@ -46,7 +46,7 @@ function handleComment (){
 function loadComments() {
   commentsAPI.getById(photoId).then((comments) => {
     let cards = profileRenderer.renderer(comments);
-    console.log(cards);
+    //console.log(cards);
     commentSection.appendChild(cards);
   }).catch ((error) => {
     messageRenderer.showErrorMessage(error);
@@ -56,7 +56,7 @@ function loadComments() {
 
 function loadRating() {
   ratingsAPI.getByPhotoUser(photoId,myUserId).then((rating) => {
-    console.log(rating);
+    //console.log(rating);
     ratingInput.value = rating[0].ratingValue;
     globalRatingId = rating[0].ratingId;
   }).catch ((error) => {
@@ -85,8 +85,8 @@ function handleEdit(event) {
 function handleRate(event) {
   event.preventDefault();
   let form = event.target;
-  console.log(form);
-  console.log("Dev: " + globalRatingId);
+  //console.log(form);
+  //console.log("Dev: " + globalRatingId);
 
   let formData = new FormData(form);
   if (globalRatingId === -1){
@@ -107,9 +107,9 @@ function hideActionsColumn() {
   let add_comment = document.getElementById("add-comment");
   let photo_edit = document.getElementById("button-edit");
 
-  console.log("My id:" + myUserId);
-  console.log("User id:" + userId);
-  console.log("Logica: "+ parseInt(myUserId === parseInt(userId)));
+  //console.log("My id:" + myUserId);
+  //console.log("User id:" + userId);
+  //console.log("Logica: "+ parseInt(myUserId === parseInt(userId)));
   if (!(sessionManager.getLoggedId() == userId)) {
     photo_edit.style.display = "none";
   } if(!(sessionManager.isLogged())){

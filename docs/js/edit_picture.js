@@ -35,7 +35,7 @@ function getCategories(){
     .getAll()
     .then((categories) => {
      for (let i = 0; i<categories.length;i++){
-     // console.log(categories[i].categoryName);
+     // //console.log(categories[i].categoryName);
       var opt = document.createElement('option');
       opt.value = categories[i].categoryName;
       opt.innerHTML = categories[i].categoryName;
@@ -54,7 +54,7 @@ function previouslySelected(){
   .getByPhoto(photoId)
   .then((categories) => {
    for (let i = 0; i<categories.length;i++){
-   // console.log(categories[i].categoryName);
+   // //console.log(categories[i].categoryName);
    let id = parseInt(categories[i].categoryId);
    document.getElementById("opt" + (id-1)).selected = true;
    }
@@ -65,9 +65,11 @@ function previouslySelected(){
 
 function purgePhotoAndSend(){
   categoriesAPI.purgePhoto(photoId).then((data) => {
-    console.log("purge ok");
+    //console.log("purge ok");
     let selectedValues = CategoriesSelect.selectedOptions;
-    console.log(selectedValues);
+    //console.log(selectedValues);
+    console.log("selectedValues");
+    console.log(selectedValues.length);
     sendCategroies(selectedValues);
 });
 }
@@ -76,25 +78,28 @@ function sendCategroies(selectedValues){
   //Time to reboot - Wait until all categories are saved
   let itsTimeToReboot = 0;
   let myTime = selectedValues.length;
+  if(selectedValues.length === 0){
+    window.location.href = "index.html";
+  }
   for (let i = 0;i<selectedValues.length;i++){
     let formData = new FormData();
-    console.log(selectedValues[i].label);
+    //console.log(selectedValues[i].label);
     let id = selectedValues[i].id.replace("opt","");
-    console.log(id);
+    //console.log(id);
     let numId = parseInt((id))+1;
     formData.append('categoryId', numId);
-    console.log(formData.getAll('categoryId'));
+    //console.log(formData.getAll('categoryId'));
     //formData.append('photoId',  parseInt(photoId));
     categoriesAPI
     .addToPhoto(formData,photoId)
     .then((data) => {
-      console.log("Success adding the cat to the photo");
+      //console.log("Success adding the cat to the photo");
       itsTimeToReboot++;
       if (parseInt(itsTimeToReboot) === parseInt(myTime)){
        window.location.href = "index.html";
       }
     }
-    );
+    ).catch((error) => messageRenderer.showErrorMessage(error));
   }
   return false;
 }
@@ -109,9 +114,12 @@ function sendCategroies(selectedValues){
       photosAPI
         .create(formData)
         .then((data) => {
+          //console.log(data);
+          photoId = data.lastId;
           let selectedValues = CategoriesSelect.selectedOptions;
+          console.log("selectedValues");
+          console.log(selectedValues.length);
           sendCategroies(selectedValues);
-
       }
         )
         .catch((error) => messageRenderer.showErrorMessage(error));
@@ -167,14 +175,14 @@ function UpdatePhotoView(){
 function createCat(){
   let newCat = document.getElementById("new_cat");
   let formData = new FormData();
-  console.log(newCat);
-  console.log(newCat.value);
+  //console.log(newCat);
+  //console.log(newCat.value);
   formData.append('categoryName',newCat.value);
   categoriesAPI.create(formData).then((data) => {
-    console.log("create ok");
+    //console.log("create ok");
     window.location.href = window.location.href;
 
-});
+}).catch((error) => messageRenderer.showErrorMessage(error));;
 }
 
 document.addEventListener("DOMContentLoaded", main);

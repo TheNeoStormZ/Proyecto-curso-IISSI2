@@ -26,7 +26,7 @@ function main() {
         data[0].avatarUrl = "images/user1.svg";
     }
       let currentProfile = data[0];
-      console.log(currentProfile);
+      //console.log(currentProfile);
       userPhoto.src = currentProfile.avatarUrl;
       realName.value = currentProfile.firstName;
       fisrtSurname.value = currentProfile.lastName;

@@ -8,6 +8,7 @@ from silence.decorators import endpoint
 def get_all():
     pass
 
+
 ###############################################################################
 @endpoint(
     route="/photosusers",

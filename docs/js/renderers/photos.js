@@ -3,7 +3,8 @@
 import { parseHTML } from "/js/utils/parseHTML.js";
 import { usersAPI } from "/js/api/users.js";
 import { commentsAPI } from "/js/api/comments.js";
-import { ratingUTILS } from "/js/utils/rating.js"
+import { ratingUTILS } from "/js/utils/rating.js";
+import { categoriesAPI } from "/js/api/categories.js";
 
 const photoRenderer = {
   asCard: function (photo) {
@@ -22,6 +23,7 @@ const photoRenderer = {
                     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
                     <p class= " text-left " id="rating"><img src="/images/star.png"> <a class="rating"></a> stars average</p >
                     <p class= " text-left "><img src="/images/dialog.png"> <a class="count"></a> comments</p>
+                    <p class= " text-left "><img src="/images/category.png"> <strong>Categories: </strong> <a class="categories"></a></p>
                     </div >
                     </div >
                     </div>
@@ -32,6 +34,7 @@ const photoRenderer = {
     loadUsernameCard(card, photo.userId);
     loadCommentsCountCard(card, photo.photoId);
     loadRating(card, photo.photoId);
+    loadCategoriesCard(card, photo.photoId);
     
     return card;
   },
@@ -41,6 +44,7 @@ const photoRenderer = {
     <h6 >${photo.description} </h6 >
     <p class= " text-left ">Published by: <img src="/images/user.png"> <a href= "user_profile.html?userId=${photo.userId}" class= "user-name">${photo.username}</a></p >
     <p class= " text-left "><img src="/images/clock.png"> Photo published on: ${photo.date}</p >
+    <p class= " text-left "><img src="/images/category.png"> <strong>Categories: </strong> <a class="categories"></a></p>
     <hr >
     <img src= "${photo.url}" class= "img-fluid">
     <p class= " text-right "><img src="/images/star.png"> <a class="rating"></a> stars average</p >
@@ -50,6 +54,7 @@ const photoRenderer = {
     loadUsernameCard(card, photo.userId);
     loadRating(card, photo.photoId);
     loadCommentsCountCard(card, photo.photoId);
+    loadCategoriesCard(card, photo.photoId);
     return card;
   },
 
@@ -97,6 +102,24 @@ function loadCommentsCountCard(card, photoId) {
     console.log(count[0].countValue);
    let p = card.querySelector("a.count");
    p.textContent = count[0].countValue;
+  });
+}
+
+function loadCategoriesCard(card, photoId) {
+  let parent =  card.querySelector("a.categories");
+  console.log(parent);
+ // let text = parseHTML('<strong>Categories: </strong>');
+ // parent.appendChild(text);
+  categoriesAPI.getByPhotoNamed(photoId).then((categories) => {
+    if (categories.length === 0){
+      let categoryHTML = parseHTML("<a>None</a>");
+      parent.appendChild(categoryHTML);
+    }
+    for (let i=0; i<categories.length;i++){
+        console.log(categories[i]);
+        let categoryHTML = parseHTML('<a href=index.html?category=' + categories[i].categoryName + '>' + categories[i].categoryName + ' </a>');
+        parent.appendChild(categoryHTML);
+    }
   });
 }
 

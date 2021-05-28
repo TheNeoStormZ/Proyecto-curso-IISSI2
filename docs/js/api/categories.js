@@ -20,6 +20,15 @@ const categoriesAPI = {
     });
   },
 
+  getByPhotoNamed: function (photoId) {
+    return new Promise(function (resolve, reject) {
+      axios
+        .get(`${BASE_URL}/photos/${photoId}/categoriesNamed`, requestOptions)
+        .then((response) => resolve(response.data))
+        .catch((error) => reject(error.response.data.message));
+    });
+  },
+
   purgePhoto: function (photoId) {
     return new Promise(function (resolve, reject) {
       axios

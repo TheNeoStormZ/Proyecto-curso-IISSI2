@@ -35,7 +35,16 @@ def add_category_photo(categoryId):
     method="GET",
     sql="SELECT * FROM photocategories WHERE photoId = $photoId"
 )
-def add_category_photo():
+def get_category_photo():
+   pass
+
+###############################################################################
+@endpoint(
+    route="/photos/$photoId/categoriesNamed",
+    method="GET",
+    sql="SELECT C.categoryName FROM photocategories PC NATURAL JOIN category C WHERE photoId = $photoId"
+)
+def get_category_photo():
    pass
 
 ###############################################################################
@@ -44,7 +53,15 @@ def add_category_photo():
     method="DELETE",
     sql="DELETE FROM photocategories WHERE photoId = $photoId",
 )
-def add_category_photo():
+def del_category_photo():
    pass
 
 ###############################################################################
+
+@endpoint(
+    route="/categories/$categoryName/photos",
+    method="GET",
+    sql="SELECT * FROM photos p NATURAL JOIN (SELECT * FROM photocategories NATURAL JOIN category) a WHERE p.visibility='Public'  AND a.categoryName=$categoryName ORDER BY date DESC"
+)
+def get_all():
+    pass

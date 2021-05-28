@@ -9,9 +9,15 @@ import { messageRenderer } from "/js/renderers/messages.js";
 
 let userId = sessionManager.getLoggedId();
 let urlParams = new URLSearchParams(window.location.search);
+
+
 let chosenUserId = urlParams.get("userId");
+
+
 let aboutHeader = document.getElementById("about-header");
 let galleryHeader = document.getElementById("gallery-header");
+
+
 let photoContainer = document.getElementById("user-photos");
 
 function main() {
@@ -53,7 +59,7 @@ function renderPublicPhotos(){
   photosAPI
   .getByUserId(userId)
   .then((photos) => {
-    console.log(photos);
+    //console.log(photos);
     let gallery = galleryRenderer.asProfile(photos);
     photoContainer.appendChild(gallery);
     let photoCount = document.getElementById("user-photos-count");
@@ -68,7 +74,7 @@ function renderPrivatePhotos(){
   photosAPI
   .getByMyUserId(userId)
   .then((photos) => {
-    console.log(photos);
+    //console.log(photos);
     let gallery = galleryRenderer.asProfile(photos);
     photoContainer.appendChild(gallery);
     let photoCount = document.getElementById("user-photos-count");

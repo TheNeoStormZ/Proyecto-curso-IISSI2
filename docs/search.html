@@ -7,7 +7,8 @@
     <link rel="icon" href="/docs/images/search.svg" />
     <link rel="stylesheet" href="/docs/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
-    <script  src="js/header.js" type="module"></script>
+    <script src="js/header.js" type="module"></script>
+    <script src="js/search.js" type="module"></script>
     <title>Search</title>
 
     <meta
@@ -27,7 +28,7 @@
       <div class="row text-left">
         <div class="col-md"><h2>Search</h2></div>
       </div>
-      <form>
+      <form id="form-search">
         <div class="row">
           <div class="col-md-11">
             <div class="form-group">
@@ -36,7 +37,7 @@
                 class="form-control"
                 id="search-input"
                 name="search"
-                placeholder="Search by category or other words"
+                placeholder="Search by category"
               />
             </div>
           </div>
@@ -45,20 +46,10 @@
               <button
                 class="btn btn-outline-primary my-2 my-sm-0"
                 type="submit"
+                id="btn-search"
               >
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md">
-            <div class="form-group">
-              <p><strong>Popular categories: </strong>
-                <a>DIY</a>
-                <a>Cooking</a>
-                <a>Space</a>
-              </p>
             </div>
           </div>
         </div>
