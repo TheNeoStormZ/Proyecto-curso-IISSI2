@@ -34,7 +34,7 @@ INSERT INTO `ratings` (`ratingId`, `photoId`, `userId`, `ratingValue`) VALUES
 	('%zorr%'),
 	('%gilipollas%'),
 	('%jódete%'),
-	('%imbecil&');
+	('%imbecil%');
 
 
 	INSERT INTO `category` (`categoryId`, `categoryName`) VALUES

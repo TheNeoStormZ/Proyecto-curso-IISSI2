@@ -29,16 +29,6 @@ const profileRenderer = {
           <p class="text-left" id="email">${profile.email}</p>
         </div>
         <div class="col-md" id="user-info-column">
-          <img src="images/group.svg" alt="User photo" class="user-photo" />
-        </div>
-        <div class="col-md" id="user-social-details-column">
-          <p class="text-left" id="user-friends">
-            <a href="user_friends.html" >4 Friends</a>
-          </p>
-          <p class="text-left" id="user-following"> <a href="user_following.html" >Following 4 people</a></p>
-          <p class="text-left" id="user-followers"><a href="user_followers.html" >4 Followers</a></p>
-        </div>
-        <div class="col-md" id="user-info-column">
           <img src="images/gallery.svg" alt="User photo" class="user-photo" />
         </div>
   
@@ -57,16 +47,6 @@ const profileRenderer = {
       <div class="col-md" id="user-details-column">
         <p class="text-left" id="user-real-name">${profile.firstName} ${profile.lastName} ${profile.secondSurname}</p>
         <p class="text-left" id="email">${profile.email}</p>
-      </div>
-      <div class="col-md" id="user-info-column">
-        <img src="images/group.svg" alt="User photo" class="user-photo" />
-      </div>
-      <div class="col-md" id="user-social-details-column">
-        <p class="text-left" id="user-friends">
-          <a href="user_friends.html" >4 Friends</a>
-        </p>
-        <p class="text-left" id="user-following"> <a href="user_following.html" >Following 4 people</a></p>
-        <p class="text-left" id="user-followers"><a href="user_followers.html" >4 Followers</a></p>
       </div>
       <div class="col-md" id="user-info-column">
         <img src="images/gallery.svg" alt="User photo" class="user-photo" />

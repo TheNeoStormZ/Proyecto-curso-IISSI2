@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/docs/images/photo_studio.svg" />
-    <link rel="stylesheet" href="/docs/styles.css" />
+    <link rel="stylesheet" href="/docs/css/styles.css" />
     <script src="/docs/js/utils/include.js"></script>
-    <script  src="js/header.js" type="module"></script>
+    <script src="js/header.js" type="module"></script>
     <title>Photo Studio</title>
 
     <meta
@@ -22,7 +22,6 @@
 
     <script src="/docs/js/libs/axios.min.js"></script>
     <script src="/docs/js/edit_picture.js" type="module"></script>
-
   </head>
   <body>
     <div class="sticky-top" id="page-header"></div>
@@ -40,10 +39,14 @@
           <div class="col-md-3">
             <div class="form-group">
               <label for="input-visibility"><h6>Photo Visibility</h6></label
-              ><select id="input-visibility" name="visibility" class="form-control">
+              ><select
+                id="input-visibility"
+                name="visibility"
+                class="form-control"
+              >
                 <option value="Public">Public</option>
                 <option value="Private">Private</option>
-                <option value="Friends">Friends</option>
+                <!--  <option value="Friends">Friends</option> -->
               </select>
             </div>
             <div class="form-group">
@@ -102,8 +105,7 @@
                 id="input-phcat"
                 multiple
                 size="4"
-              >
-              </select>
+              ></select>
             </div>
             <div class="form-group">
               <label for="new_cat"><h6>Create a category:</h6></label>
@@ -121,25 +123,16 @@
                 Create
               </button>
             </div>
-            <div class="form-group">
-              <label for="custom_id"><h6>Custom photo link:</h6></label>
-              <label>showcase.com/photo/</label><input
-                  type="text"
-                  id="custom_id"
-                  name="custom_id"
-                  class="form-control"
-                  size="15"
-                  value="416587"
-                />
-            </div>
           </div>
         </div>
         <div class="row text-right">
           <div class="col-md">
             <h2>
               <div class="form-group">
-                <button type="button" id="button-delete" class="btn btn-danger">Discard</button>
-                <button type="submit"  id="button-edit" class="btn btn-primary">
+                <button type="button" id="button-delete" class="btn btn-danger">
+                  Discard
+                </button>
+                <button type="submit" id="button-edit" class="btn btn-primary">
                   Upload <i class="fa fa-upload" aria-hidden="true"></i>
                 </button>
               </div>
