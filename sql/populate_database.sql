@@ -27,27 +27,29 @@ INSERT INTO `ratings` (`ratingId`, `photoId`, `userId`, `ratingValue`) VALUES
 
 	INSERT INTO `inapropiatewords` (`wordValue`) VALUES
 	('%cabron%'),
-	('%cabrona%'),
-	('%estupido%'),
-	('%estupida%'),
-	('%soplapollas%'),
+	('%estupid%'),
+	('%soplapolla%'),
 	('%escoria%'),
-	('%comemierdas%'),
-	('%zorro%'),
-	('%zorra%'),
+	('%comemierda%'),
+	('%zorr%'),
 	('%gilipollas%'),
-	('jódete'),
-	('imbecil');
+	('%jódete%'),
+	('%imbecil&');
 
 
 	INSERT INTO `category` (`categoryId`, `categoryName`) VALUES
 	(1, 'Animales'),
 	(2, 'Paisajes'),
-	(3, 'Tecnologia');
+	(3, 'Tecnologia'),
+	(4, 'Comida');
 
 	
 	INSERT INTO `photocategories` (`PhotoCategories`, `categoryId`, `photoId`) VALUES
 	(1, 2, 5),
-	(3, 3, 5);
+	(2, 4, 1),
+	(3, 3, 5),
+	(4, 1, 2),
+	(5, 1, 3),
+	(6, 2, 4);
 
 

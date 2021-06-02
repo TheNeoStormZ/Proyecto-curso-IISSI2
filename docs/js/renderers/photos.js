@@ -99,7 +99,7 @@ function loadRating(card, photoId) {
 
 function loadCommentsCountCard(card, photoId) {
   commentsAPI.getByIdCount(photoId).then((count) => {
-    console.log(count[0].countValue);
+    //console.log(count[0].countValue);
    let p = card.querySelector("a.count");
    p.textContent = count[0].countValue;
   });
@@ -107,7 +107,7 @@ function loadCommentsCountCard(card, photoId) {
 
 function loadCategoriesCard(card, photoId) {
   let parent =  card.querySelector("a.categories");
-  console.log(parent);
+  //console.log(parent);
  // let text = parseHTML('<strong>Categories: </strong>');
  // parent.appendChild(text);
   categoriesAPI.getByPhotoNamed(photoId).then((categories) => {
@@ -116,8 +116,8 @@ function loadCategoriesCard(card, photoId) {
       parent.appendChild(categoryHTML);
     }
     for (let i=0; i<categories.length;i++){
-        console.log(categories[i]);
-        let categoryHTML = parseHTML('<a href=index.html?category=' + categories[i].categoryName + '>' + categories[i].categoryName + ' </a>');
+        //console.log(categories[i]);
+        let categoryHTML = parseHTML('<a class="cat-class" href=index.html?category=' + categories[i].categoryName + '>' + categories[i].categoryName + ' </a>');
         parent.appendChild(categoryHTML);
     }
   });

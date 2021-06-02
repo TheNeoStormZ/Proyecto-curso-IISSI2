@@ -6,7 +6,7 @@ import { sessionManager } from "/js/utils/session.js";
 
 const profileRenderer = {
     show: function (profile) {
-        console.log(profile);
+        //console.log(profile);
         let myId = sessionManager.getLoggedId();
         let html;
       if (profile.secondSurname === null){

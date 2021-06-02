@@ -66,11 +66,11 @@ def create(title, description, url, visibility, userId):
 @endpoint(
     route="/photos/$photoId",
     method="PUT",
-    sql="UPDATE Photos SET title = $title, description = $description, url = $url, visibility = $visibility WHERE photoId = $photoId",
+    sql="UPDATE Photos SET userId=$userId, title = $title, description = $description, url = $url, visibility = $visibility WHERE photoId = $photoId",
     description="Updates an existing photo",
     auth_required=True,
 )
-def update(title, description, url, visibility):
+def update(title, description, url, visibility,userId):
     pass
 
 ###############################################################################

@@ -5,8 +5,6 @@ CREATE OR REPLACE TRIGGER myPhotoNotYours
 	BEFORE UPDATE ON photos
 	FOR EACH ROW
 	BEGIN
-	DECLARE myUserId INT;
-	SELECT userId INTO myUserId FROM comments WHERE photoId=OLD.photoId;
 	IF OLD.userId != NEW.userId  THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = '¡La foto no te pertenece!';
 	END IF;
@@ -98,6 +96,20 @@ CREATE OR REPLACE TRIGGER dontLoseComments
 	
 	IF cuenta >0 THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La foto no se puede borrar porque tiene comentarios';
+	END IF;
+	END//
+DELIMITER ;
+
+DELIMITER //
+CREATE OR REPLACE TRIGGER dontLoseCommentsPrivate
+	BEFORE UPDATE ON photos
+	FOR EACH ROW
+	BEGIN
+	DECLARE cuenta INT;
+	SELECT COUNT(*)  INTO cuenta FROM comments WHERE photoId=OLD.photoId;
+	
+	IF (cuenta >0 && NEW.visibility='Private') THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La foto no se puede poner privada porque tiene comentarios';
 	END IF;
 	END//
 DELIMITER ;

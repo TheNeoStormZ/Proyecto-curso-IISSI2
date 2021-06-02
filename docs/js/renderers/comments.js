@@ -8,7 +8,7 @@ const profileRenderer = {
     renderer: function (comments) {
         let parent = parseHTML('<div class= "comments-generated"> </div >');
         for (let comment of comments){
-            console.log(comment);
+            //console.log(comment);
             let card = this.show(comment);
             parent.appendChild(card);
         }
