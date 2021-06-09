@@ -7,6 +7,8 @@ import { ratingsAPI } from "/js/api/ratings.js";
 import { commentsAPI } from "/js/api/comments.js";
 import { profileRenderer } from "/js/renderers/comments.js";
 
+import { wordsValidator } from "/js/validators/badwords.js";
+
 let urlParams = new URLSearchParams(window.location.search);
 //RENDER FOTO
 let photoId = urlParams.get("photoId");
@@ -37,10 +39,7 @@ function handleComment (){
   event.preventDefault();
   let form = event.target;
   let formData = new FormData(form);
-  formData.append("userId", myUserId);
-  commentsAPI.create(formData,photoId)
-  .then((data) => (window.location.href = window.location.href))
-  .catch((error) => messageRenderer.showErrorMessage(error));
+  let errors = wordsValidator.validateCommment(formData,myUserId,photoId);
 }
 
 function loadComments() {
